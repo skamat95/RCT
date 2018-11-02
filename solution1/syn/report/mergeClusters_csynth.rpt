@@ -1,0 +1,145 @@
+
+
+================================================================
+== Vivado HLS Report for 'mergeClusters'
+================================================================
+* Date:           Wed Oct 31 22:16:50 2018
+
+* Version:        2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)
+* Project:        RCT_2016_project
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1927-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.16|      3.42|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    0|    0|    1|    1| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      -|       0|     356|
+|FIFO             |        -|      -|       -|       -|
+|Instance         |        -|      -|       -|       -|
+|Memory           |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|       -|
+|Register         |        -|      -|       -|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |        0|      0|       0|     356|
++-----------------+---------+-------+--------+--------+
+|Available        |     2940|   3600|  866400|  433200|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |        0|      0|       0|   ~0   |
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +-----------------------------+----------+-------+---+----+------------+------------+
+    |        Variable Name        | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +-----------------------------+----------+-------+---+----+------------+------------+
+    |tmp_3_fu_96_p2               |     +    |      0|  0|  16|          16|          16|
+    |tmp_4_fu_102_p2              |     +    |      0|  0|  16|          16|          16|
+    |tmp_7_fu_114_p2              |     +    |      0|  0|  16|          16|          16|
+    |tmp_5_fu_108_p2              |     -    |      0|  0|  16|          16|          16|
+    |tmp_8_fu_120_p2              |     -    |      0|  0|  16|          16|          16|
+    |sel_tmp_fu_126_p2            |    and   |      0|  0|   1|           1|           1|
+    |tmp_1_fu_78_p2               |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_2_fu_90_p2               |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_fu_72_p2                 |   icmp   |      0|  0|   6|          16|          16|
+    |or_cond_fu_84_p2             |    or    |      0|  0|   1|           1|           1|
+    |cet1_write_assign_fu_156_p3  |  select  |      0|  0|  16|           1|          16|
+    |cet2_write_assign_fu_252_p3  |  select  |      0|  0|  16|           1|          16|
+    |eta1_write_assign_fu_220_p3  |  select  |      0|  0|  16|           1|          16|
+    |eta2_write_assign_fu_188_p3  |  select  |      0|  0|  16|           1|          16|
+    |phi1_write_assign_fu_172_p3  |  select  |      0|  0|  16|           1|          16|
+    |phi2_write_assign_fu_204_p3  |  select  |      0|  0|  16|           1|          16|
+    |sel_tmp1_fu_132_p3           |  select  |      0|  0|  16|           1|          16|
+    |sel_tmp2_fu_180_p3           |  select  |      0|  0|  16|           1|           2|
+    |sel_tmp3_fu_196_p3           |  select  |      0|  0|  16|           1|           2|
+    |sel_tmp4_fu_212_p3           |  select  |      0|  0|  16|           1|          16|
+    |sel_tmp5_fu_148_p3           |  select  |      0|  0|  16|           1|          16|
+    |sel_tmp6_fu_228_p3           |  select  |      0|  0|  16|           1|          16|
+    |sel_tmp7_fu_244_p3           |  select  |      0|  0|  16|           1|           1|
+    |sel_tmp9_fu_164_p3           |  select  |      0|  0|  16|           1|          16|
+    |tet1_write_assign_fu_140_p3  |  select  |      0|  0|  16|           1|          16|
+    |tet2_write_assign_fu_236_p3  |  select  |      0|  0|  16|           1|          16|
+    +-----------------------------+----------+-------+---+----+------------+------------+
+    |Total                        |          |      0|  0| 356|         146|         343|
+    +-----------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------+-----+-----+------------+---------------+--------------+
+|  RTL Ports  | Dir | Bits|  Protocol  | Source Object |    C Type    |
++-------------+-----+-----+------------+---------------+--------------+
+|ieta1        |  in |   16|   ap_none  |     ieta1     |    scalar    |
+|iphi1        |  in |   16|   ap_none  |     iphi1     |    scalar    |
+|itet1        |  in |   16|   ap_none  |     itet1     |    scalar    |
+|icet1        |  in |   16|   ap_none  |     icet1     |    scalar    |
+|ieta2        |  in |   16|   ap_none  |     ieta2     |    scalar    |
+|iphi2        |  in |   16|   ap_none  |     iphi2     |    scalar    |
+|itet2        |  in |   16|   ap_none  |     itet2     |    scalar    |
+|icet2        |  in |   16|   ap_none  |     icet2     |    scalar    |
+|ap_return_0  | out |   16| ap_ctrl_hs | mergeClusters | return value |
+|ap_return_1  | out |   16| ap_ctrl_hs | mergeClusters | return value |
+|ap_return_2  | out |   16| ap_ctrl_hs | mergeClusters | return value |
+|ap_return_3  | out |   16| ap_ctrl_hs | mergeClusters | return value |
+|ap_return_4  | out |   16| ap_ctrl_hs | mergeClusters | return value |
+|ap_return_5  | out |   16| ap_ctrl_hs | mergeClusters | return value |
+|ap_return_6  | out |   16| ap_ctrl_hs | mergeClusters | return value |
+|ap_return_7  | out |   16| ap_ctrl_hs | mergeClusters | return value |
++-------------+-----+-----+------------+---------------+--------------+
+

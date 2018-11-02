@@ -1,0 +1,289 @@
+
+
+================================================================
+== Vivado HLS Report for 'getPeakBinOf5'
+================================================================
+* Date:           Wed Oct 31 22:16:19 2018
+
+* Version:        2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)
+* Project:        RCT_2016_project
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1927-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.16|      2.73|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    3|    3|    4|    4| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 4, depth = 4
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 4
+* Pipeline: 1
+  Pipeline-0: II = 4, D = 4, States = { 1 2 3 4 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+* FSM state operations: 
+
+ <State 1>: 2.52ns
+ST_1: et_2_read_1 (10)  [1/1] 0.00ns
+_ifconv:3  %et_2_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %et_2_read)
+
+ST_1: et_1_read_1 (11)  [1/1] 0.00ns
+_ifconv:4  %et_1_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %et_1_read)
+
+ST_1: et_0_read_1 (12)  [1/1] 0.00ns
+_ifconv:5  %et_0_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %et_0_read)
+
+ST_1: tmp_9 (14)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:7  %tmp_9 = call i15 @_ssdm_op_PartSelect.i15.i16.i32.i32(i16 %et_0_read_1, i32 1, i32 15)
+
+ST_1: tmp_2 (15)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:8  %tmp_2 = zext i15 %tmp_9 to i16
+
+ST_1: tmp_s (16)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:9  %tmp_s = call i15 @_ssdm_op_PartSelect.i15.i16.i32.i32(i16 %et_1_read_1, i32 1, i32 15)
+
+ST_1: tmp_5 (17)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:10  %tmp_5 = zext i15 %tmp_s to i16
+
+ST_1: tmp_1 (18)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:11  %tmp_1 = call i15 @_ssdm_op_PartSelect.i15.i16.i32.i32(i16 %et_2_read_1, i32 1, i32 15)
+
+ST_1: tmp_16 (19)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:12  %tmp_16 = zext i15 %tmp_1 to i16
+
+ST_1: tmp (20)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:13  %tmp = shl i16 %et_2_read_1, 1
+
+ST_1: tmp8 (29)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:22  %tmp8 = add i16 %tmp_2, %et_1_read_1
+
+ST_1: tmp2 (30)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:23  %tmp2 = add i16 %tmp, %tmp_16
+
+ST_1: tmp9 (31)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:24  %tmp9 = add i16 %tmp_5, %tmp2
+
+
+ <State 2>: 2.52ns
+ST_2: et_4_read_1 (8)  [1/1] 0.00ns
+_ifconv:1  %et_4_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %et_4_read)
+
+ST_2: et_3_read_1 (9)  [1/1] 0.00ns
+_ifconv:2  %et_3_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %et_3_read)
+
+ST_2: tmp_3 (21)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:14  %tmp_3 = call i15 @_ssdm_op_PartSelect.i15.i16.i32.i32(i16 %et_3_read_1, i32 1, i32 15)
+
+ST_2: tmp_17 (22)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:15  %tmp_17 = zext i15 %tmp_3 to i16
+
+ST_2: tmp_18 (23)  [1/1] 0.00ns
+_ifconv:16  %tmp_18 = trunc i16 %et_3_read_1 to i14
+
+ST_2: tmp_19 (24)  [1/1] 0.00ns
+_ifconv:17  %tmp_19 = trunc i16 %et_4_read_1 to i14
+
+ST_2: tmp5 (25)  [1/1] 1.39ns
+_ifconv:18  %tmp5 = add i14 %tmp_19, %tmp_18
+
+ST_2: tmp_4 (27)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:20  %tmp_4 = call i15 @_ssdm_op_PartSelect.i15.i16.i32.i32(i16 %et_4_read_1, i32 1, i32 15)
+
+ST_2: tmp_8 (32)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:25  %tmp_8 = add i16 %tmp8, %tmp9
+
+ST_2: tmp_6 (33)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:26  %tmp_6 = sub i16 %tmp_8, %tmp_17
+
+
+ <State 3>: 2.52ns
+ST_3: etSum_read (7)  [1/1] 0.00ns
+_ifconv:0  %etSum_read = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %etSum)
+
+ST_3: tmp1 (26)  [1/1] 0.00ns
+_ifconv:19  %tmp1 = call i16 @_ssdm_op_BitConcatenate.i16.i14.i2(i14 %tmp5, i2 0)
+
+ST_3: tmp_20 (28)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:21  %tmp_20 = zext i15 %tmp_4 to i16
+
+ST_3: tmp3 (34)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:27  %tmp3 = add i16 %tmp1, %tmp_20
+
+ST_3: iEtSum (35)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309
+_ifconv:28  %iEtSum = add i16 %tmp_6, %tmp3
+
+ST_3: tmp_14_cast1 (39)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1312
+_ifconv:32  %tmp_14_cast1 = zext i16 %etSum_read to i18
+
+ST_3: tmp_10 (40)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1312
+_ifconv:33  %tmp_10 = call i17 @_ssdm_op_BitConcatenate.i17.i16.i1(i16 %etSum_read, i1 false)
+
+ST_3: tmp_15_cast (41)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1312
+_ifconv:34  %tmp_15_cast = zext i17 %tmp_10 to i18
+
+ST_3: tmp_12 (43)  [1/1] 1.45ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1313
+_ifconv:36  %tmp_12 = add i18 %tmp_14_cast1, %tmp_15_cast
+
+
+ <State 4>: 2.73ns
+ST_4: StgValue_37 (13)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1302
+_ifconv:6  call void (...)* @_ssdm_op_SpecPipeline(i32 6, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_4: tmp_7 (36)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1311
+_ifconv:29  %tmp_7 = icmp ugt i16 %iEtSum, %etSum_read
+
+ST_4: tmp_13_cast1 (37)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1312
+_ifconv:30  %tmp_13_cast1 = zext i16 %iEtSum to i18
+
+ST_4: tmp_13_cast (38)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1312
+_ifconv:31  %tmp_13_cast = zext i16 %iEtSum to i17
+
+ST_4: tmp_11 (42)  [1/1] 1.30ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1312
+_ifconv:35  %tmp_11 = icmp ugt i17 %tmp_13_cast, %tmp_10
+
+ST_4: tmp_13 (44)  [1/1] 1.31ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1313
+_ifconv:37  %tmp_13 = icmp ugt i18 %tmp_13_cast1, %tmp_12
+
+ST_4: tmp_14 (45)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1314
+_ifconv:38  %tmp_14 = call i18 @_ssdm_op_BitConcatenate.i18.i16.i2(i16 %etSum_read, i2 0)
+
+ST_4: tmp_15 (46)  [1/1] 1.31ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1314
+_ifconv:39  %tmp_15 = icmp ugt i18 %tmp_13_cast1, %tmp_14
+
+ST_4: iAve (47)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1314 (grouped into LUT with out node sel_tmp4)
+_ifconv:40  %iAve = select i1 %tmp_15, i3 -4, i3 3
+
+ST_4: tmp4 (48)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1312 (grouped into LUT with out node sel_tmp4)
+_ifconv:41  %tmp4 = and i1 %tmp_11, %tmp_13
+
+ST_4: sel_tmp1 (49)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1312 (grouped into LUT with out node sel_tmp4)
+_ifconv:42  %sel_tmp1 = and i1 %tmp4, %tmp_7
+
+ST_4: sel_tmp2 (50)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1312 (grouped into LUT with out node sel_tmp4)
+_ifconv:43  %sel_tmp2 = select i1 %sel_tmp1, i3 %iAve, i3 2
+
+ST_4: sel_tmp4 (51)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1311 (out node of the LUT)
+_ifconv:44  %sel_tmp4 = select i1 %tmp_7, i3 %sel_tmp2, i3 0
+
+ST_4: sel_tmp5 (52)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1312 (grouped into LUT with out node iAve_3)
+_ifconv:45  %sel_tmp5 = xor i1 %tmp_11, true
+
+ST_4: sel_tmp6 (53)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1311 (grouped into LUT with out node iAve_3)
+_ifconv:46  %sel_tmp6 = and i1 %tmp_7, %sel_tmp5
+
+ST_4: iAve_3 (54)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1311 (out node of the LUT)
+_ifconv:47  %iAve_3 = select i1 %sel_tmp6, i3 1, i3 %sel_tmp4
+
+ST_4: StgValue_53 (55)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1316
+_ifconv:48  ret i3 %iAve_3
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.16ns, clock uncertainty: 0.52ns.
+
+ <State 1>: 2.52ns
+The critical path consists of the following:
+	wire read on port 'et_2_read' [10]  (0 ns)
+	'add' operation ('tmp2', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309) [30]  (1.26 ns)
+	'add' operation ('tmp9', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309) [31]  (1.26 ns)
+
+ <State 2>: 2.52ns
+The critical path consists of the following:
+	'add' operation ('tmp_8', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309) [32]  (1.26 ns)
+	'sub' operation ('tmp_6', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309) [33]  (1.26 ns)
+
+ <State 3>: 2.52ns
+The critical path consists of the following:
+	'add' operation ('tmp3', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309) [34]  (1.26 ns)
+	'add' operation ('iEtSum', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1309) [35]  (1.26 ns)
+
+ <State 4>: 2.73ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_15', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1314) [46]  (1.31 ns)
+	'select' operation ('iAve', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1314) [47]  (0 ns)
+	'select' operation ('sel_tmp2', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1312) [50]  (0 ns)
+	'select' operation ('sel_tmp4', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1311) [51]  (0.71 ns)
+	'select' operation ('iAve_3', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1311) [54]  (0.71 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

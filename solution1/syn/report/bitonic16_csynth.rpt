@@ -1,0 +1,474 @@
+
+
+================================================================
+== Vivado HLS Report for 'bitonic16'
+================================================================
+* Date:           Wed Oct 31 22:16:49 2018
+
+* Version:        2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)
+* Project:        RCT_2016_project
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1927-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.16|      3.29|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    5|    5|    6|    6| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        +----------------------+-----------+-----+-----+-----+-----+----------+
+        |                      |           |  Latency  |  Interval | Pipeline |
+        |       Instance       |   Module  | min | max | min | max |   Type   |
+        +----------------------+-----------+-----+-----+-----+-----+----------+
+        |grp_bitonic32_fu_312  |bitonic32  |    2|    2|    3|    3| function |
+        +----------------------+-----------+-----+-----+-----+-----+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+--------+
+|       Name      | BRAM_18K| DSP48E|   FF   |   LUT  |
++-----------------+---------+-------+--------+--------+
+|DSP              |        -|      -|       -|       -|
+|Expression       |        -|      -|       0|    1734|
+|FIFO             |        -|      -|       -|       -|
+|Instance         |        -|      -|     753|    1531|
+|Memory           |        -|      -|       -|       -|
+|Multiplexer      |        -|      -|       -|       1|
+|Register         |        -|      -|    1301|       -|
++-----------------+---------+-------+--------+--------+
+|Total            |        0|      0|    2054|    3266|
++-----------------+---------+-------+--------+--------+
+|Available        |     2940|   3600|  866400|  433200|
++-----------------+---------+-------+--------+--------+
+|Utilization (%)  |        0|      0|   ~0   |   ~0   |
++-----------------+---------+-------+--------+--------+
+
++ Detail: 
+    * Instance: 
+    +----------------------+-----------+---------+-------+-----+------+
+    |       Instance       |   Module  | BRAM_18K| DSP48E|  FF |  LUT |
+    +----------------------+-----------+---------+-------+-----+------+
+    |grp_bitonic32_fu_312  |bitonic32  |        0|      0|  753|  1531|
+    +----------------------+-----------+---------+-------+-----+------+
+    |Total                 |           |        0|      0|  753|  1531|
+    +----------------------+-----------+---------+-------+-----+------+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |           Variable Name          | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |tmp_379_6_fu_362_p2               |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_379_7_fu_384_p2               |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_387_1_fu_428_p2               |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_387_2_fu_450_p2               |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_387_3_fu_469_p2               |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_391_2_fu_680_p2               |   icmp   |      0|  0|   6|          16|           1|
+    |tmp_391_3_fu_701_p2               |   icmp   |      0|  0|   6|          16|           1|
+    |tmp_404_1_fu_500_p2               |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_409_1_fu_506_p2               |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_424_1_fu_992_p2               |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_424_2_fu_1046_p2              |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_424_3_fu_1100_p2              |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_424_4_fu_1154_p2              |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_44_fu_488_p2                  |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_45_fu_494_p2                  |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_46_fu_938_p2                  |   icmp   |      0|  0|   6|          16|          16|
+    |tmp_s_fu_406_p2                   |   icmp   |      0|  0|   6|          16|          16|
+    |ClusterDeposits12_0_s_fu_442_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits12_1_s_fu_765_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits2_0_C_fu_462_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits2_2_C_fu_1006_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits3_0_s_fu_481_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits3_1_C_fu_760_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits3_2_C_fu_998_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits4_1_C_fu_803_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits4_2_C_fu_1060_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits5_0_C_fu_434_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits5_1_C_fu_841_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits5_2_C_fu_1052_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits6_0_C_fu_455_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits6_1_C_fu_798_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits6_2_C_fu_1114_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits7_1_C_fu_836_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits7_2_C_fu_1106_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits8_2_C_fu_1164_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterDeposits9_2_C_fu_1158_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta32_0_Clust_fu_603_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta32_1_Clust_fu_777_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta33_0_Clust_fu_631_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta33_2_Clust_fu_1022_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta34_0_read_fu_659_p3     |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta34_1_Clust_1_fu_960_p3  |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta34_1_Clust_fu_770_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta34_2_Clust_fu_1014_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta35_1_Clust_fu_815_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta35_2_Clust_fu_1076_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta36_0_Clust_fu_596_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta36_1_Clust_fu_853_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta36_2_Clust_fu_1068_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta3743_0_Clu_1_fu_732_p3  |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta3743_0_Clu_fu_624_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta3743_1_Clu_fu_808_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta3743_2_Clu_fu_1130_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta38_1_Clust_fu_846_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta38_2_Clust_fu_1122_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta39_1_Clust_fu_882_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta39_2_Clust_fu_1178_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta40_1_read_fu_914_p3     |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta40_2_Clust_fu_1170_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta41_0_Clust_fu_685_p3    |  select  |      0|  0|  16|           1|           1|
+    |ClusterEta41_1_Clust_fu_874_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta42_0_read_fu_706_p3     |  select  |      0|  0|  16|           1|           1|
+    |ClusterEta_1_Cluster_fu_739_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterEta_2_Cluster_fu_968_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi63_0_Clust_fu_617_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi63_1_Clust_fu_791_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi64_0_Clust_fu_645_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi64_2_Clust_fu_1038_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi65_0_read_fu_673_p3     |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi65_1_Clust_1_fu_976_p3  |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi65_1_Clust_fu_784_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi65_2_Clust_fu_1030_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi66_1_Clust_fu_829_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi66_2_Clust_fu_1092_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi67_0_Clust_fu_610_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi67_1_Clust_fu_867_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi67_2_Clust_fu_1084_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi68_0_Clust_1_fu_746_p3  |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi68_0_Clust_fu_638_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi68_1_Clust_fu_822_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi68_2_Clust_fu_1146_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi69_1_Clust_fu_860_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi69_2_Clust_fu_1138_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi7078_1_Clu_fu_898_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi7078_2_Clu_fu_1194_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi71_1_read_fu_930_p3     |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi71_2_Clust_fu_1186_p3   |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi72_0_Clust_fu_693_p3    |  select  |      0|  0|  16|           1|           1|
+    |ClusterPhi72_1_Clust_fu_890_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi73_0_read_fu_714_p3     |  select  |      0|  0|  16|           1|           1|
+    |ClusterPhi_1_Cluster_fu_753_p3    |  select  |      0|  0|  16|           1|          16|
+    |ClusterPhi_2_Cluster_fu_984_p3    |  select  |      0|  0|  16|           1|          16|
+    |p_read12_read4_read_fu_412_p3     |  select  |      0|  0|  16|           1|          16|
+    |p_read14_read6_fu_368_p3          |  select  |      0|  0|  16|           1|          16|
+    |p_read15_read7_Clust_fu_474_p3    |  select  |      0|  0|  16|           1|          16|
+    |p_read15_read7_fu_390_p3          |  select  |      0|  0|  16|           1|          16|
+    |p_read38_read_fu_519_p3           |  select  |      0|  0|  16|           1|          16|
+    |p_read39_read47_Clus_fu_906_p3    |  select  |      0|  0|  16|           1|          16|
+    |p_read39_read_fu_547_p3           |  select  |      0|  0|  16|           1|          16|
+    |p_read40_read32_rea_fu_575_p3     |  select  |      0|  0|  16|           1|          16|
+    |p_read44_read36_rea_fu_568_p3     |  select  |      0|  0|  16|           1|          16|
+    |p_read46_read_fu_512_p3           |  select  |      0|  0|  16|           1|          16|
+    |p_read47_read39_Clus_fu_652_p3    |  select  |      0|  0|  16|           1|          16|
+    |p_read47_read_fu_540_p3           |  select  |      0|  0|  16|           1|          16|
+    |p_read6_read_fu_376_p3            |  select  |      0|  0|  16|           1|          16|
+    |p_read70_read_fu_533_p3           |  select  |      0|  0|  16|           1|          16|
+    |p_read71_read79_Clus_fu_922_p3    |  select  |      0|  0|  16|           1|          16|
+    |p_read71_read_fu_561_p3           |  select  |      0|  0|  16|           1|          16|
+    |p_read72_read64_rea_fu_589_p3     |  select  |      0|  0|  16|           1|          16|
+    |p_read76_read68_rea_fu_582_p3     |  select  |      0|  0|  16|           1|          16|
+    |p_read78_read_fu_526_p3           |  select  |      0|  0|  16|           1|          16|
+    |p_read79_read71_Clus_fu_666_p3    |  select  |      0|  0|  16|           1|          16|
+    |p_read79_read_fu_554_p3           |  select  |      0|  0|  16|           1|          16|
+    |p_read7_read_fu_398_p3            |  select  |      0|  0|  16|           1|          16|
+    |p_read8_read_read_fu_420_p3       |  select  |      0|  0|  16|           1|          16|
+    |sel_SEBB1_fu_944_p3               |  select  |      0|  0|  16|           1|          16|
+    |sel_SEBB7_fu_722_p3               |  select  |      0|  0|  16|           1|          16|
+    |sel_SEBB8_fu_727_p3               |  select  |      0|  0|  16|           1|          16|
+    |sel_SEBB_fu_952_p3                |  select  |      0|  0|  16|           1|          16|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+    |Total                             |          |      0|  0|1734|         374|        1814|
+    +----------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------+----+-----------+-----+-----------+
+    |    Name   | LUT| Input Size| Bits| Total Bits|
+    +-----------+----+-----------+-----+-----------+
+    |ap_NS_fsm  |   1|          7|    1|          7|
+    +-----------+----+-----------+-----+-----------+
+    |Total      |   1|          7|    1|          7|
+    +-----------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------------+----+----+-----+-----------+
+    |                 Name                 | FF | LUT| Bits| Const Bits|
+    +--------------------------------------+----+----+-----+-----------+
+    |ClusterDeposits12_0_s_reg_1282        |  16|   0|   16|          0|
+    |ClusterDeposits2_0_C_reg_1302         |  16|   0|   16|          0|
+    |ClusterDeposits2_2_C_reg_1443         |  16|   0|   16|          0|
+    |ClusterDeposits3_0_s_reg_1322         |  16|   0|   16|          0|
+    |ClusterDeposits3_2_C_reg_1438         |  16|   0|   16|          0|
+    |ClusterDeposits4_2_C_reg_1473         |  16|   0|   16|          0|
+    |ClusterDeposits5_0_C_reg_1276         |  16|   0|   16|          0|
+    |ClusterDeposits5_2_C_reg_1468         |  16|   0|   16|          0|
+    |ClusterDeposits6_0_C_reg_1296         |  16|   0|   16|          0|
+    |ClusterDeposits6_2_C_reg_1503         |  16|   0|   16|          0|
+    |ClusterDeposits7_2_C_reg_1498         |  16|   0|   16|          0|
+    |ClusterDeposits8_2_C_reg_1533         |  16|   0|   16|          0|
+    |ClusterDeposits9_2_C_reg_1528         |  16|   0|   16|          0|
+    |ClusterEta33_2_Clust_reg_1453         |  16|   0|   16|          0|
+    |ClusterEta34_1_Clust_1_reg_1418       |  16|   0|   16|          0|
+    |ClusterEta34_2_Clust_reg_1448         |  16|   0|   16|          0|
+    |ClusterEta35_2_Clust_reg_1483         |  16|   0|   16|          0|
+    |ClusterEta36_2_Clust_reg_1478         |  16|   0|   16|          0|
+    |ClusterEta3743_2_Clu_reg_1513         |  16|   0|   16|          0|
+    |ClusterEta38_2_Clust_reg_1508         |  16|   0|   16|          0|
+    |ClusterEta39_1_Clust_reg_1388         |  16|   0|   16|          0|
+    |ClusterEta39_2_Clust_reg_1543         |  16|   0|   16|          0|
+    |ClusterEta40_1_read_reg_1398          |  16|   0|   16|          0|
+    |ClusterEta40_2_Clust_reg_1538         |  16|   0|   16|          0|
+    |ClusterEta41_0_Clust_reg_1368         |  16|   0|   16|          0|
+    |ClusterEta42_0_read_reg_1378          |  16|   0|   16|          0|
+    |ClusterEta_2_Cluster_reg_1423         |  16|   0|   16|          0|
+    |ClusterPhi64_2_Clust_reg_1463         |  16|   0|   16|          0|
+    |ClusterPhi65_1_Clust_1_reg_1428       |  16|   0|   16|          0|
+    |ClusterPhi65_2_Clust_reg_1458         |  16|   0|   16|          0|
+    |ClusterPhi66_2_Clust_reg_1493         |  16|   0|   16|          0|
+    |ClusterPhi67_2_Clust_reg_1488         |  16|   0|   16|          0|
+    |ClusterPhi68_2_Clust_reg_1523         |  16|   0|   16|          0|
+    |ClusterPhi69_2_Clust_reg_1518         |  16|   0|   16|          0|
+    |ClusterPhi7078_1_Clu_reg_1393         |  16|   0|   16|          0|
+    |ClusterPhi7078_2_Clu_reg_1553         |  16|   0|   16|          0|
+    |ClusterPhi71_1_read_reg_1403          |  16|   0|   16|          0|
+    |ClusterPhi71_2_Clust_reg_1548         |  16|   0|   16|          0|
+    |ClusterPhi72_0_Clust_reg_1373         |  16|   0|   16|          0|
+    |ClusterPhi73_0_read_reg_1383          |  16|   0|   16|          0|
+    |ClusterPhi_2_Cluster_reg_1433         |  16|   0|   16|          0|
+    |ap_CS_fsm                             |   6|   0|    6|          0|
+    |ap_port_reg_ClusterDeposits_0_r       |  16|   0|   16|          0|
+    |ap_port_reg_ClusterDeposits_1_r       |  16|   0|   16|          0|
+    |ap_port_reg_ClusterDeposits_2_r       |  16|   0|   16|          0|
+    |ap_port_reg_ClusterDeposits_3_r       |  16|   0|   16|          0|
+    |ap_port_reg_ClusterDeposits_4_r       |  16|   0|   16|          0|
+    |ap_port_reg_ClusterDeposits_5_r       |  16|   0|   16|          0|
+    |ap_port_reg_ClusterEta_0_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterEta_12_read        |   1|   0|    1|          0|
+    |ap_port_reg_ClusterEta_13_read        |   1|   0|    1|          0|
+    |ap_port_reg_ClusterEta_14_read        |  16|   0|   16|          0|
+    |ap_port_reg_ClusterEta_15_read        |  16|   0|   16|          0|
+    |ap_port_reg_ClusterEta_1_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterEta_2_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterEta_3_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterEta_4_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterEta_5_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterEta_6_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterEta_7_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterEta_8_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterEta_9_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterPhi_0_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterPhi_12_read        |   1|   0|    1|          0|
+    |ap_port_reg_ClusterPhi_13_read        |   1|   0|    1|          0|
+    |ap_port_reg_ClusterPhi_14_read        |  16|   0|   16|          0|
+    |ap_port_reg_ClusterPhi_15_read        |  16|   0|   16|          0|
+    |ap_port_reg_ClusterPhi_1_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterPhi_2_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterPhi_3_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterPhi_4_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterPhi_5_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterPhi_6_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterPhi_7_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterPhi_8_read         |  16|   0|   16|          0|
+    |ap_port_reg_ClusterPhi_9_read         |  16|   0|   16|          0|
+    |ap_reg_grp_bitonic32_fu_312_ap_start  |   1|   0|    1|          0|
+    |p_read12_read4_read_reg_1256          |  16|   0|   16|          0|
+    |p_read14_read6_reg_1210               |  16|   0|   16|          0|
+    |p_read15_read7_Clust_reg_1316         |  16|   0|   16|          0|
+    |p_read15_read7_reg_1233               |  16|   0|   16|          0|
+    |p_read6_read_reg_1217                 |  16|   0|   16|          0|
+    |p_read7_read_reg_1240                 |  16|   0|   16|          0|
+    |p_read8_read_read_reg_1262            |  16|   0|   16|          0|
+    |sel_SEBB1_reg_1408                    |  16|   0|   16|          0|
+    |sel_SEBB_reg_1413                     |  16|   0|   16|          0|
+    |tmp_379_6_reg_1202                    |   1|   0|    1|          0|
+    |tmp_379_7_reg_1225                    |   1|   0|    1|          0|
+    |tmp_387_1_reg_1268                    |   1|   0|    1|          0|
+    |tmp_387_2_reg_1288                    |   1|   0|    1|          0|
+    |tmp_387_3_reg_1308                    |   1|   0|    1|          0|
+    |tmp_404_1_reg_1348                    |   1|   0|    1|          0|
+    |tmp_409_1_reg_1358                    |   1|   0|    1|          0|
+    |tmp_44_reg_1328                       |   1|   0|    1|          0|
+    |tmp_45_reg_1338                       |   1|   0|    1|          0|
+    |tmp_s_reg_1248                        |   1|   0|    1|          0|
+    +--------------------------------------+----+----+-----+-----------+
+    |Total                                 |1301|   0| 1301|          0|
+    +--------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++----------------------+-----+-----+------------+----------------------+--------------+
+|       RTL Ports      | Dir | Bits|  Protocol  |     Source Object    |    C Type    |
++----------------------+-----+-----+------------+----------------------+--------------+
+|ap_clk                |  in |    1| ap_ctrl_hs |       bitonic16      | return value |
+|ap_rst                |  in |    1| ap_ctrl_hs |       bitonic16      | return value |
+|ap_start              |  in |    1| ap_ctrl_hs |       bitonic16      | return value |
+|ap_done               | out |    1| ap_ctrl_hs |       bitonic16      | return value |
+|ap_idle               | out |    1| ap_ctrl_hs |       bitonic16      | return value |
+|ap_ready              | out |    1| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_0           | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_1           | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_2           | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_3           | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_4           | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_5           | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_6           | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_7           | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_8           | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_9           | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_10          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_11          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_12          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_13          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_14          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_15          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_16          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_17          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_18          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_19          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_20          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_21          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_22          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_23          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_24          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_25          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_26          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_27          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_28          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_29          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_30          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_31          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_32          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_33          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_34          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_35          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_36          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_37          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_38          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_39          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_40          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_41          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_42          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_43          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_44          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_45          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_46          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_47          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_48          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_49          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_50          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_51          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_52          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_53          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_54          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_55          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_56          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_57          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_58          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_59          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_60          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_61          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_62          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_63          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_64          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_65          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_66          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_67          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_68          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_69          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_70          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_71          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_72          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_73          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_74          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_75          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_76          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_77          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_78          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_79          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_80          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_81          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_82          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_83          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_84          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_85          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_86          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_87          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_88          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ap_return_89          | out |   16| ap_ctrl_hs |       bitonic16      | return value |
+|ClusterDeposits_0_r   |  in |   16|   ap_none  |  ClusterDeposits_0_r |    scalar    |
+|ClusterDeposits_1_r   |  in |   16|   ap_none  |  ClusterDeposits_1_r |    scalar    |
+|ClusterDeposits_2_r   |  in |   16|   ap_none  |  ClusterDeposits_2_r |    scalar    |
+|ClusterDeposits_3_r   |  in |   16|   ap_none  |  ClusterDeposits_3_r |    scalar    |
+|ClusterDeposits_4_r   |  in |   16|   ap_none  |  ClusterDeposits_4_r |    scalar    |
+|ClusterDeposits_5_r   |  in |   16|   ap_none  |  ClusterDeposits_5_r |    scalar    |
+|ClusterDeposits_6_r   |  in |   16|   ap_none  |  ClusterDeposits_6_r |    scalar    |
+|ClusterDeposits_7_r   |  in |   16|   ap_none  |  ClusterDeposits_7_r |    scalar    |
+|ClusterDeposits_14_s  |  in |   16|   ap_none  | ClusterDeposits_14_s |    scalar    |
+|ClusterDeposits_15_s  |  in |   16|   ap_none  | ClusterDeposits_15_s |    scalar    |
+|ClusterEta_0_read     |  in |   16|   ap_none  |   ClusterEta_0_read  |    scalar    |
+|ClusterEta_1_read     |  in |   16|   ap_none  |   ClusterEta_1_read  |    scalar    |
+|ClusterEta_2_read     |  in |   16|   ap_none  |   ClusterEta_2_read  |    scalar    |
+|ClusterEta_3_read     |  in |   16|   ap_none  |   ClusterEta_3_read  |    scalar    |
+|ClusterEta_4_read     |  in |   16|   ap_none  |   ClusterEta_4_read  |    scalar    |
+|ClusterEta_5_read     |  in |   16|   ap_none  |   ClusterEta_5_read  |    scalar    |
+|ClusterEta_6_read     |  in |   16|   ap_none  |   ClusterEta_6_read  |    scalar    |
+|ClusterEta_7_read     |  in |   16|   ap_none  |   ClusterEta_7_read  |    scalar    |
+|ClusterEta_8_read     |  in |   16|   ap_none  |   ClusterEta_8_read  |    scalar    |
+|ClusterEta_9_read     |  in |   16|   ap_none  |   ClusterEta_9_read  |    scalar    |
+|ClusterEta_12_read    |  in |    1|   ap_none  |  ClusterEta_12_read  |    scalar    |
+|ClusterEta_13_read    |  in |    1|   ap_none  |  ClusterEta_13_read  |    scalar    |
+|ClusterEta_14_read    |  in |   16|   ap_none  |  ClusterEta_14_read  |    scalar    |
+|ClusterEta_15_read    |  in |   16|   ap_none  |  ClusterEta_15_read  |    scalar    |
+|ClusterPhi_0_read     |  in |   16|   ap_none  |   ClusterPhi_0_read  |    scalar    |
+|ClusterPhi_1_read     |  in |   16|   ap_none  |   ClusterPhi_1_read  |    scalar    |
+|ClusterPhi_2_read     |  in |   16|   ap_none  |   ClusterPhi_2_read  |    scalar    |
+|ClusterPhi_3_read     |  in |   16|   ap_none  |   ClusterPhi_3_read  |    scalar    |
+|ClusterPhi_4_read     |  in |   16|   ap_none  |   ClusterPhi_4_read  |    scalar    |
+|ClusterPhi_5_read     |  in |   16|   ap_none  |   ClusterPhi_5_read  |    scalar    |
+|ClusterPhi_6_read     |  in |   16|   ap_none  |   ClusterPhi_6_read  |    scalar    |
+|ClusterPhi_7_read     |  in |   16|   ap_none  |   ClusterPhi_7_read  |    scalar    |
+|ClusterPhi_8_read     |  in |   16|   ap_none  |   ClusterPhi_8_read  |    scalar    |
+|ClusterPhi_9_read     |  in |   16|   ap_none  |   ClusterPhi_9_read  |    scalar    |
+|ClusterPhi_12_read    |  in |    1|   ap_none  |  ClusterPhi_12_read  |    scalar    |
+|ClusterPhi_13_read    |  in |    1|   ap_none  |  ClusterPhi_13_read  |    scalar    |
+|ClusterPhi_14_read    |  in |   16|   ap_none  |  ClusterPhi_14_read  |    scalar    |
+|ClusterPhi_15_read    |  in |   16|   ap_none  |  ClusterPhi_15_read  |    scalar    |
++----------------------+-----+-----+------------+----------------------+--------------+
+

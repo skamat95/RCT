@@ -1,0 +1,50 @@
+INFO: [XSIM 43-3496] Using init file passed via -initfile option "/data/tools/Vivado/2016.4/data/xsim/ip/xsim_ip.ini".
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /data/tools/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab xil_defaultlib.apatb_getClustersInCard_top -prj getClustersInCard.prj --initfile /data/tools/Vivado/2016.4/data/xsim/ip/xsim_ip.ini --lib ieee_proposed=./ieee_proposed -s getClustersInCard -debug wave 
+Multi-threading is on. Using 34 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getPeakBinOf5.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module getPeakBinOf5
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getClustersInCardbkb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module getClustersInCardbkb
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getClustersInCarddEe.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module getClustersInCarddEe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getClustersInCardcud.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module getClustersInCardcud
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/bitonic_1_8.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bitonic_1_8
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getClustersInCard.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module getClustersInCard
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/bitonic32.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bitonic32
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getClustersin3x4Regi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module getClustersin3x4Regi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getClustersInTower.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module getClustersInTower
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/bitonic16.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bitonic16
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/mergeClusters.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mergeClusters
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/bitonic8.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bitonic8
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getClustersInCard.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_getClustersInCard_top
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.bitonic_1_8
+Compiling module xil_defaultlib.getPeakBinOf5
+Compiling module xil_defaultlib.getClustersInCardbkb(ID=1,din1_W...
+Compiling module xil_defaultlib.getClustersInTower
+Compiling module xil_defaultlib.getClustersin3x4Regi
+Compiling module xil_defaultlib.bitonic32
+Compiling module xil_defaultlib.bitonic16
+Compiling module xil_defaultlib.bitonic8
+Compiling module xil_defaultlib.mergeClusters
+Compiling module xil_defaultlib.getClustersInCardcud(ID=1,din1_W...
+Compiling module xil_defaultlib.getClustersInCarddEe(ID=1,din1_W...
+Compiling module xil_defaultlib.getClustersInCard
+Compiling module xil_defaultlib.apatb_getClustersInCard_top
+Built simulation snapshot getClustersInCard

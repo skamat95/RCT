@@ -1,0 +1,939 @@
+
+
+================================================================
+== Vivado HLS Report for 'bitonic_1_8'
+================================================================
+* Date:           Wed Oct 31 22:16:20 2018
+
+* Version:        2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)
+* Project:        RCT_2016_project
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1927-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.16|      3.55|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    4|    4|    5|    5| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 5, depth = 5
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 5
+* Pipeline: 1
+  Pipeline-0: II = 5, D = 5, States = { 1 2 3 4 5 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+* FSM state operations: 
+
+ <State 1>: 2.00ns
+ST_1: Cluster_1_Deposits_7_2 (65)  [1/1] 0.00ns
+._crit_edge.0:28  %Cluster_1_Deposits_7_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Deposits_7)
+
+ST_1: Cluster_1_Deposits_6_2 (66)  [1/1] 0.00ns
+._crit_edge.0:29  %Cluster_1_Deposits_6_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Deposits_6)
+
+ST_1: Cluster_1_Deposits_5_2 (67)  [1/1] 0.00ns
+._crit_edge.0:30  %Cluster_1_Deposits_5_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Deposits_5)
+
+ST_1: Cluster_1_Deposits_4_2 (68)  [1/1] 0.00ns
+._crit_edge.0:31  %Cluster_1_Deposits_4_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Deposits_4)
+
+ST_1: Cluster_1_Deposits_3_2 (69)  [1/1] 0.00ns
+._crit_edge.0:32  %Cluster_1_Deposits_3_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Deposits_3)
+
+ST_1: Cluster_1_Deposits_2_2 (70)  [1/1] 0.00ns
+._crit_edge.0:33  %Cluster_1_Deposits_2_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Deposits_2)
+
+ST_1: Cluster_1_Deposits_1_11 (71)  [1/1] 0.00ns
+._crit_edge.0:34  %Cluster_1_Deposits_1_11 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Deposits_1)
+
+ST_1: Cluster_1_Deposits_0_2 (72)  [1/1] 0.00ns
+._crit_edge.0:35  %Cluster_1_Deposits_0_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Deposits_0)
+
+ST_1: tmp_s (73)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:36  %tmp_s = icmp ult i16 %Cluster_1_Deposits_0_2, %Cluster_1_Deposits_4_2
+
+ST_1: p_read4_read (74)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:37  %p_read4_read = select i1 %tmp_s, i16 %Cluster_1_Deposits_4_2, i16 %Cluster_1_Deposits_0_2
+
+ST_1: p_read_read4 (75)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:38  %p_read_read4 = select i1 %tmp_s, i16 %Cluster_1_Deposits_0_2, i16 %Cluster_1_Deposits_4_2
+
+ST_1: tmp_99_1 (80)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:43  %tmp_99_1 = icmp ult i16 %Cluster_1_Deposits_1_11, %Cluster_1_Deposits_5_2
+
+ST_1: p_read5_read1 (81)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:44  %p_read5_read1 = select i1 %tmp_99_1, i16 %Cluster_1_Deposits_5_2, i16 %Cluster_1_Deposits_1_11
+
+ST_1: p_read1_read5 (82)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:45  %p_read1_read5 = select i1 %tmp_99_1, i16 %Cluster_1_Deposits_1_11, i16 %Cluster_1_Deposits_5_2
+
+ST_1: tmp_99_2 (87)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:50  %tmp_99_2 = icmp ult i16 %Cluster_1_Deposits_2_2, %Cluster_1_Deposits_6_2
+
+ST_1: p_read6_read2 (88)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:51  %p_read6_read2 = select i1 %tmp_99_2, i16 %Cluster_1_Deposits_6_2, i16 %Cluster_1_Deposits_2_2
+
+ST_1: p_read2_read6 (89)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:52  %p_read2_read6 = select i1 %tmp_99_2, i16 %Cluster_1_Deposits_2_2, i16 %Cluster_1_Deposits_6_2
+
+ST_1: tmp_99_3 (94)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:57  %tmp_99_3 = icmp ult i16 %Cluster_1_Deposits_3_2, %Cluster_1_Deposits_7_2
+
+ST_1: p_read7_read3 (95)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:58  %p_read7_read3 = select i1 %tmp_99_3, i16 %Cluster_1_Deposits_7_2, i16 %Cluster_1_Deposits_3_2
+
+ST_1: p_read3_read7 (96)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:59  %p_read3_read7 = select i1 %tmp_99_3, i16 %Cluster_1_Deposits_3_2, i16 %Cluster_1_Deposits_7_2
+
+
+ <State 2>: 3.29ns
+ST_2: Cluster_1_Deposits_1_6 (61)  [1/1] 0.00ns
+._crit_edge.0:24  %Cluster_1_Deposits_1_6 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Deposits_1_5)
+
+ST_2: Cluster_1_Deposits_1_10 (62)  [1/1] 0.00ns
+._crit_edge.0:25  %Cluster_1_Deposits_1_10 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Deposits_1_4)
+
+ST_2: Cluster_1_Deposits_9_1 (63)  [1/1] 0.00ns
+._crit_edge.0:26  %Cluster_1_Deposits_9_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Deposits_9)
+
+ST_2: Cluster_1_Deposits_8_1 (64)  [1/1] 0.00ns
+._crit_edge.0:27  %Cluster_1_Deposits_8_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Deposits_8)
+
+ST_2: tmp_32 (101)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1049
+._crit_edge.0:64  %tmp_32 = icmp eq i16 %Cluster_1_Deposits_8_1, 0
+
+ST_2: tmp_103_1 (104)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1049
+._crit_edge.0:67  %tmp_103_1 = icmp eq i16 %Cluster_1_Deposits_9_1, 0
+
+ST_2: tmp_103_2 (107)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1049
+._crit_edge.0:70  %tmp_103_2 = icmp eq i16 %Cluster_1_Deposits_1_10, 0
+
+ST_2: tmp_103_3 (110)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1049
+._crit_edge.0:73  %tmp_103_3 = icmp eq i16 %Cluster_1_Deposits_1_6, 0
+
+ST_2: tmp_33 (113)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1067
+._crit_edge.0:76  %tmp_33 = icmp ult i16 %p_read4_read, %p_read6_read2
+
+ST_2: tmp_34 (120)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1079
+._crit_edge.0:83  %tmp_34 = icmp ult i16 %p_read5_read1, %p_read7_read3
+
+ST_2: tmp_108_1 (127)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1067
+._crit_edge.0:90  %tmp_108_1 = icmp ult i16 %p_read_read4, %p_read2_read6
+
+ST_2: Cluster_1_Deposits6_s (128)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1067
+._crit_edge.0:91  %Cluster_1_Deposits6_s = select i1 %tmp_108_1, i16 %p_read2_read6, i16 %p_read_read4
+
+ST_2: Cluster_1_Deposits4_s (129)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1067
+._crit_edge.0:92  %Cluster_1_Deposits4_s = select i1 %tmp_108_1, i16 %p_read_read4, i16 %p_read2_read6
+
+ST_2: tmp_113_1 (134)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1079
+._crit_edge.0:97  %tmp_113_1 = icmp ult i16 %p_read1_read5, %p_read3_read7
+
+ST_2: Cluster_1_Deposits7_s (135)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1079
+._crit_edge.0:98  %Cluster_1_Deposits7_s = select i1 %tmp_113_1, i16 %p_read3_read7, i16 %p_read1_read5
+
+ST_2: Cluster_1_Deposits5_s (136)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1079
+._crit_edge.0:99  %Cluster_1_Deposits5_s = select i1 %tmp_113_1, i16 %p_read1_read5, i16 %p_read3_read7
+
+ST_2: tmp_118_1 (141)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1098
+._crit_edge.0:104  %tmp_118_1 = icmp ugt i16 %Cluster_1_Deposits_8_1, %Cluster_1_Deposits_1_10
+
+ST_2: Cluster_1_Deposits2 (142)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1098
+._crit_edge.0:105  %Cluster_1_Deposits2 = select i1 %tmp_118_1, i16 %Cluster_1_Deposits_1_10, i16 %Cluster_1_Deposits_8_1
+
+ST_2: Cluster_1_Deposits12_1 (143)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1098
+._crit_edge.0:106  %Cluster_1_Deposits12_1 = select i1 %tmp_118_1, i16 %Cluster_1_Deposits_8_1, i16 %Cluster_1_Deposits_1_10
+
+ST_2: tmp_123_1 (148)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1110
+._crit_edge.0:111  %tmp_123_1 = icmp ugt i16 %Cluster_1_Deposits_9_1, %Cluster_1_Deposits_1_6
+
+ST_2: Cluster_1_Deposits3 (149)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1110
+._crit_edge.0:112  %Cluster_1_Deposits3 = select i1 %tmp_123_1, i16 %Cluster_1_Deposits_1_6, i16 %Cluster_1_Deposits_9_1
+
+ST_2: Cluster_1_Deposits4 (150)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1110
+._crit_edge.0:113  %Cluster_1_Deposits4 = select i1 %tmp_123_1, i16 %Cluster_1_Deposits_9_1, i16 %Cluster_1_Deposits_1_6
+
+ST_2: tmp_128_2 (169)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:132  %tmp_128_2 = icmp ult i16 %Cluster_1_Deposits6_s, %Cluster_1_Deposits7_s
+
+ST_2: tmp_128_3 (176)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:139  %tmp_128_3 = icmp ult i16 %Cluster_1_Deposits4_s, %Cluster_1_Deposits5_s
+
+ST_2: tmp_133_2 (183)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1144
+._crit_edge.0:146  %tmp_133_2 = icmp ugt i16 %Cluster_1_Deposits2, %Cluster_1_Deposits3
+
+ST_2: tmp_133_3 (190)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1144
+._crit_edge.0:153  %tmp_133_3 = icmp ugt i16 %Cluster_1_Deposits12_1, %Cluster_1_Deposits4
+
+
+ <State 3>: 2.71ns
+ST_3: Cluster_1_Deposits2_s (114)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1067
+._crit_edge.0:77  %Cluster_1_Deposits2_s = select i1 %tmp_33, i16 %p_read6_read2, i16 %p_read4_read
+
+ST_3: Cluster_1_Deposits (115)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1067
+._crit_edge.0:78  %Cluster_1_Deposits = select i1 %tmp_33, i16 %p_read4_read, i16 %p_read6_read2
+
+ST_3: Cluster_1_Deposits3_s (121)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1079
+._crit_edge.0:84  %Cluster_1_Deposits3_s = select i1 %tmp_34, i16 %p_read7_read3, i16 %p_read5_read1
+
+ST_3: Cluster_1_Deposits1 (122)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1079
+._crit_edge.0:85  %Cluster_1_Deposits1 = select i1 %tmp_34, i16 %p_read5_read1, i16 %p_read7_read3
+
+ST_3: tmp_35 (155)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:118  %tmp_35 = icmp ult i16 %Cluster_1_Deposits2_s, %Cluster_1_Deposits3_s
+
+ST_3: Cluster_1_Deposits_0_1 (156)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:119  %Cluster_1_Deposits_0_1 = select i1 %tmp_35, i16 %Cluster_1_Deposits3_s, i16 %Cluster_1_Deposits2_s
+
+ST_3: Cluster_1_Deposits_1_7 (157)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:120  %Cluster_1_Deposits_1_7 = select i1 %tmp_35, i16 %Cluster_1_Deposits2_s, i16 %Cluster_1_Deposits3_s
+
+ST_3: tmp_128_1 (162)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:125  %tmp_128_1 = icmp ult i16 %Cluster_1_Deposits, %Cluster_1_Deposits1
+
+ST_3: Cluster_1_Deposits_2_1 (163)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:126  %Cluster_1_Deposits_2_1 = select i1 %tmp_128_1, i16 %Cluster_1_Deposits1, i16 %Cluster_1_Deposits
+
+ST_3: Cluster_1_Deposits_3_1 (164)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:127  %Cluster_1_Deposits_3_1 = select i1 %tmp_128_1, i16 %Cluster_1_Deposits, i16 %Cluster_1_Deposits1
+
+ST_3: Cluster_1_Deposits_4_1 (170)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:133  %Cluster_1_Deposits_4_1 = select i1 %tmp_128_2, i16 %Cluster_1_Deposits7_s, i16 %Cluster_1_Deposits6_s
+
+ST_3: Cluster_1_Deposits_5_1 (171)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:134  %Cluster_1_Deposits_5_1 = select i1 %tmp_128_2, i16 %Cluster_1_Deposits6_s, i16 %Cluster_1_Deposits7_s
+
+ST_3: Cluster_1_Deposits_6_1 (177)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:140  %Cluster_1_Deposits_6_1 = select i1 %tmp_128_3, i16 %Cluster_1_Deposits5_s, i16 %Cluster_1_Deposits4_s
+
+ST_3: Cluster_1_Deposits_7_1 (178)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:141  %Cluster_1_Deposits_7_1 = select i1 %tmp_128_3, i16 %Cluster_1_Deposits4_s, i16 %Cluster_1_Deposits5_s
+
+ST_3: Cluster_1_Deposits_1_8 (184)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1144
+._crit_edge.0:147  %Cluster_1_Deposits_1_8 = select i1 %tmp_133_2, i16 %Cluster_1_Deposits3, i16 %Cluster_1_Deposits2
+
+ST_3: Cluster_1_Deposits_1_9 (185)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1144
+._crit_edge.0:148  %Cluster_1_Deposits_1_9 = select i1 %tmp_133_2, i16 %Cluster_1_Deposits2, i16 %Cluster_1_Deposits3
+
+ST_3: Cluster_1_Deposits_1_12 (191)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1144
+._crit_edge.0:154  %Cluster_1_Deposits_1_12 = select i1 %tmp_133_3, i16 %Cluster_1_Deposits4, i16 %Cluster_1_Deposits12_1
+
+ST_3: Cluster_1_Deposits_1_3 (192)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1144
+._crit_edge.0:155  %Cluster_1_Deposits_1_3 = select i1 %tmp_133_3, i16 %Cluster_1_Deposits12_1, i16 %Cluster_1_Deposits4
+
+ST_3: tmp_169_4_i (197)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:160  %tmp_169_4_i = icmp ult i16 %Cluster_1_Deposits_4_1, %Cluster_1_Deposits_1_8
+
+ST_3: p_read12_read4_i (198)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:161  %p_read12_read4_i = select i1 %tmp_169_4_i, i16 %Cluster_1_Deposits_1_8, i16 %Cluster_1_Deposits_4_1
+
+ST_3: tmp_169_5_i (201)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:164  %tmp_169_5_i = icmp ult i16 %Cluster_1_Deposits_5_1, %Cluster_1_Deposits_1_9
+
+ST_3: p_read13_read5_i (202)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:165  %p_read13_read5_i = select i1 %tmp_169_5_i, i16 %Cluster_1_Deposits_1_9, i16 %Cluster_1_Deposits_5_1
+
+ST_3: tmp_169_6_i (205)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:168  %tmp_169_6_i = icmp ult i16 %Cluster_1_Deposits_6_1, %Cluster_1_Deposits_1_12
+
+ST_3: p_read14_read6_i (206)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:169  %p_read14_read6_i = select i1 %tmp_169_6_i, i16 %Cluster_1_Deposits_1_12, i16 %Cluster_1_Deposits_6_1
+
+ST_3: tmp_169_7_i (209)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:172  %tmp_169_7_i = icmp ult i16 %Cluster_1_Deposits_7_1, %Cluster_1_Deposits_1_3
+
+ST_3: p_read15_read7_i (210)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:173  %p_read15_read7_i = select i1 %tmp_169_7_i, i16 %Cluster_1_Deposits_1_3, i16 %Cluster_1_Deposits_7_1
+
+
+ <State 4>: 3.55ns
+ST_4: Cluster_1_Phi_11_re_1 (37)  [1/1] 0.00ns
+._crit_edge.0:0  %Cluster_1_Phi_11_re_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Phi_11_re)
+
+ST_4: Cluster_1_Phi_10_re_1 (38)  [1/1] 0.00ns
+._crit_edge.0:1  %Cluster_1_Phi_10_re_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Phi_10_re)
+
+ST_4: Cluster_1_Phi_9_rea_1 (39)  [1/1] 0.00ns
+._crit_edge.0:2  %Cluster_1_Phi_9_rea_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Phi_9_rea)
+
+ST_4: Cluster_1_Phi_8_rea_1 (40)  [1/1] 0.00ns
+._crit_edge.0:3  %Cluster_1_Phi_8_rea_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Phi_8_rea)
+
+ST_4: Cluster_1_Phi_7_rea_2 (41)  [1/1] 0.00ns
+._crit_edge.0:4  %Cluster_1_Phi_7_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Phi_7_rea)
+
+ST_4: Cluster_1_Phi_6_rea_2 (42)  [1/1] 0.00ns
+._crit_edge.0:5  %Cluster_1_Phi_6_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Phi_6_rea)
+
+ST_4: Cluster_1_Phi_5_rea_2 (43)  [1/1] 0.00ns
+._crit_edge.0:6  %Cluster_1_Phi_5_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Phi_5_rea)
+
+ST_4: Cluster_1_Phi_4_rea_2 (44)  [1/1] 0.00ns
+._crit_edge.0:7  %Cluster_1_Phi_4_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Phi_4_rea)
+
+ST_4: Cluster_1_Phi_3_rea_2 (45)  [1/1] 0.00ns
+._crit_edge.0:8  %Cluster_1_Phi_3_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Phi_3_rea)
+
+ST_4: Cluster_1_Phi_2_rea_2 (46)  [1/1] 0.00ns
+._crit_edge.0:9  %Cluster_1_Phi_2_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Phi_2_rea)
+
+ST_4: Cluster_1_Phi_1_rea_2 (47)  [1/1] 0.00ns
+._crit_edge.0:10  %Cluster_1_Phi_1_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Phi_1_rea)
+
+ST_4: Cluster_1_Phi_0_rea_2 (48)  [1/1] 0.00ns
+._crit_edge.0:11  %Cluster_1_Phi_0_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Phi_0_rea)
+
+ST_4: Cluster_1_Eta_11_re_1 (49)  [1/1] 0.00ns
+._crit_edge.0:12  %Cluster_1_Eta_11_re_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Eta_11_re)
+
+ST_4: Cluster_1_Eta_10_re_1 (50)  [1/1] 0.00ns
+._crit_edge.0:13  %Cluster_1_Eta_10_re_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Eta_10_re)
+
+ST_4: Cluster_1_Eta_9_rea_1 (51)  [1/1] 0.00ns
+._crit_edge.0:14  %Cluster_1_Eta_9_rea_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Eta_9_rea)
+
+ST_4: Cluster_1_Eta_8_rea_1 (52)  [1/1] 0.00ns
+._crit_edge.0:15  %Cluster_1_Eta_8_rea_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Eta_8_rea)
+
+ST_4: Cluster_1_Eta_7_rea_2 (53)  [1/1] 0.00ns
+._crit_edge.0:16  %Cluster_1_Eta_7_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Eta_7_rea)
+
+ST_4: Cluster_1_Eta_6_rea_2 (54)  [1/1] 0.00ns
+._crit_edge.0:17  %Cluster_1_Eta_6_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Eta_6_rea)
+
+ST_4: Cluster_1_Eta_5_rea_2 (55)  [1/1] 0.00ns
+._crit_edge.0:18  %Cluster_1_Eta_5_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Eta_5_rea)
+
+ST_4: Cluster_1_Eta_4_rea_2 (56)  [1/1] 0.00ns
+._crit_edge.0:19  %Cluster_1_Eta_4_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Eta_4_rea)
+
+ST_4: Cluster_1_Eta_3_rea_2 (57)  [1/1] 0.00ns
+._crit_edge.0:20  %Cluster_1_Eta_3_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Eta_3_rea)
+
+ST_4: Cluster_1_Eta_2_rea_2 (58)  [1/1] 0.00ns
+._crit_edge.0:21  %Cluster_1_Eta_2_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Eta_2_rea)
+
+ST_4: Cluster_1_Eta_1_rea_2 (59)  [1/1] 0.00ns
+._crit_edge.0:22  %Cluster_1_Eta_1_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Eta_1_rea)
+
+ST_4: Cluster_1_Eta_0_rea_2 (60)  [1/1] 0.00ns
+._crit_edge.0:23  %Cluster_1_Eta_0_rea_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %Cluster_1_Eta_0_rea)
+
+ST_4: p_read20_read (76)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:39  %p_read20_read = select i1 %tmp_s, i16 %Cluster_1_Eta_4_rea_2, i16 %Cluster_1_Eta_0_rea_2
+
+ST_4: p_read16_read (77)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:40  %p_read16_read = select i1 %tmp_s, i16 %Cluster_1_Eta_0_rea_2, i16 %Cluster_1_Eta_4_rea_2
+
+ST_4: p_read36_read (78)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:41  %p_read36_read = select i1 %tmp_s, i16 %Cluster_1_Phi_4_rea_2, i16 %Cluster_1_Phi_0_rea_2
+
+ST_4: p_read32_read (79)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:42  %p_read32_read = select i1 %tmp_s, i16 %Cluster_1_Phi_0_rea_2, i16 %Cluster_1_Phi_4_rea_2
+
+ST_4: p_read21_read (83)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:46  %p_read21_read = select i1 %tmp_99_1, i16 %Cluster_1_Eta_5_rea_2, i16 %Cluster_1_Eta_1_rea_2
+
+ST_4: p_read17_read (84)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:47  %p_read17_read = select i1 %tmp_99_1, i16 %Cluster_1_Eta_1_rea_2, i16 %Cluster_1_Eta_5_rea_2
+
+ST_4: p_read37_read (85)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:48  %p_read37_read = select i1 %tmp_99_1, i16 %Cluster_1_Phi_5_rea_2, i16 %Cluster_1_Phi_1_rea_2
+
+ST_4: p_read33_read (86)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:49  %p_read33_read = select i1 %tmp_99_1, i16 %Cluster_1_Phi_1_rea_2, i16 %Cluster_1_Phi_5_rea_2
+
+ST_4: p_read22_read (90)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:53  %p_read22_read = select i1 %tmp_99_2, i16 %Cluster_1_Eta_6_rea_2, i16 %Cluster_1_Eta_2_rea_2
+
+ST_4: p_read18_read (91)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:54  %p_read18_read = select i1 %tmp_99_2, i16 %Cluster_1_Eta_2_rea_2, i16 %Cluster_1_Eta_6_rea_2
+
+ST_4: p_read38_read (92)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:55  %p_read38_read = select i1 %tmp_99_2, i16 %Cluster_1_Phi_6_rea_2, i16 %Cluster_1_Phi_2_rea_2
+
+ST_4: p_read34_read (93)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:56  %p_read34_read = select i1 %tmp_99_2, i16 %Cluster_1_Phi_2_rea_2, i16 %Cluster_1_Phi_6_rea_2
+
+ST_4: p_read23_read (97)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:60  %p_read23_read = select i1 %tmp_99_3, i16 %Cluster_1_Eta_7_rea_2, i16 %Cluster_1_Eta_3_rea_2
+
+ST_4: p_read19_read (98)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:61  %p_read19_read = select i1 %tmp_99_3, i16 %Cluster_1_Eta_3_rea_2, i16 %Cluster_1_Eta_7_rea_2
+
+ST_4: p_read39_read (99)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:62  %p_read39_read = select i1 %tmp_99_3, i16 %Cluster_1_Phi_7_rea_2, i16 %Cluster_1_Phi_3_rea_2
+
+ST_4: p_read35_read (100)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033
+._crit_edge.0:63  %p_read35_read = select i1 %tmp_99_3, i16 %Cluster_1_Phi_3_rea_2, i16 %Cluster_1_Phi_7_rea_2
+
+ST_4: p_read (102)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1049
+._crit_edge.0:65  %p_read = select i1 %tmp_32, i16 0, i16 %Cluster_1_Eta_8_rea_1
+
+ST_4: p_read1 (103)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1049
+._crit_edge.0:66  %p_read1 = select i1 %tmp_32, i16 0, i16 %Cluster_1_Phi_8_rea_1
+
+ST_4: p_read2 (105)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1049
+._crit_edge.0:68  %p_read2 = select i1 %tmp_103_1, i16 0, i16 %Cluster_1_Eta_9_rea_1
+
+ST_4: p_read3 (106)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1049
+._crit_edge.0:69  %p_read3 = select i1 %tmp_103_1, i16 0, i16 %Cluster_1_Phi_9_rea_1
+
+ST_4: p_read4 (108)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1049
+._crit_edge.0:71  %p_read4 = select i1 %tmp_103_2, i16 0, i16 %Cluster_1_Eta_10_re_1
+
+ST_4: p_read5 (109)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1049
+._crit_edge.0:72  %p_read5 = select i1 %tmp_103_2, i16 0, i16 %Cluster_1_Phi_10_re_1
+
+ST_4: p_read6 (111)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1049
+._crit_edge.0:74  %p_read6 = select i1 %tmp_103_3, i16 0, i16 %Cluster_1_Eta_11_re_1
+
+ST_4: p_read7 (112)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1049
+._crit_edge.0:75  %p_read7 = select i1 %tmp_103_3, i16 0, i16 %Cluster_1_Phi_11_re_1
+
+ST_4: Cluster_1_Eta17_0_Cl (116)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1067
+._crit_edge.0:79  %Cluster_1_Eta17_0_Cl = select i1 %tmp_33, i16 %p_read22_read, i16 %p_read20_read
+
+ST_4: Cluster_1_Eta_0_Clus (117)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1067
+._crit_edge.0:80  %Cluster_1_Eta_0_Clus = select i1 %tmp_33, i16 %p_read20_read, i16 %p_read22_read
+
+ST_4: Cluster_1_Phi32_0_Cl (118)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1067
+._crit_edge.0:81  %Cluster_1_Phi32_0_Cl = select i1 %tmp_33, i16 %p_read38_read, i16 %p_read36_read
+
+ST_4: Cluster_1_Phi_0_Clus (119)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1067
+._crit_edge.0:82  %Cluster_1_Phi_0_Clus = select i1 %tmp_33, i16 %p_read36_read, i16 %p_read38_read
+
+ST_4: Cluster_1_Eta18_0_Cl (123)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1079
+._crit_edge.0:86  %Cluster_1_Eta18_0_Cl = select i1 %tmp_34, i16 %p_read23_read, i16 %p_read21_read
+
+ST_4: Cluster_1_Eta16_0_Cl (124)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1079
+._crit_edge.0:87  %Cluster_1_Eta16_0_Cl = select i1 %tmp_34, i16 %p_read21_read, i16 %p_read23_read
+
+ST_4: Cluster_1_Phi33_0_Cl (125)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1079
+._crit_edge.0:88  %Cluster_1_Phi33_0_Cl = select i1 %tmp_34, i16 %p_read39_read, i16 %p_read37_read
+
+ST_4: Cluster_1_Phi31_0_Cl (126)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1079
+._crit_edge.0:89  %Cluster_1_Phi31_0_Cl = select i1 %tmp_34, i16 %p_read37_read, i16 %p_read39_read
+
+ST_4: Cluster_1_Eta21_0_Cl (130)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1067
+._crit_edge.0:93  %Cluster_1_Eta21_0_Cl = select i1 %tmp_108_1, i16 %p_read18_read, i16 %p_read16_read
+
+ST_4: Cluster_1_Eta19_0_Cl (131)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1067
+._crit_edge.0:94  %Cluster_1_Eta19_0_Cl = select i1 %tmp_108_1, i16 %p_read16_read, i16 %p_read18_read
+
+ST_4: Cluster_1_Phi36_0_Cl (132)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1067
+._crit_edge.0:95  %Cluster_1_Phi36_0_Cl = select i1 %tmp_108_1, i16 %p_read34_read, i16 %p_read32_read
+
+ST_4: Cluster_1_Phi34_0_Cl (133)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1067
+._crit_edge.0:96  %Cluster_1_Phi34_0_Cl = select i1 %tmp_108_1, i16 %p_read32_read, i16 %p_read34_read
+
+ST_4: Cluster_1_Eta22_0_Cl (137)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1079
+._crit_edge.0:100  %Cluster_1_Eta22_0_Cl = select i1 %tmp_113_1, i16 %p_read19_read, i16 %p_read17_read
+
+ST_4: Cluster_1_Eta2025_0_s (138)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1079
+._crit_edge.0:101  %Cluster_1_Eta2025_0_s = select i1 %tmp_113_1, i16 %p_read17_read, i16 %p_read19_read
+
+ST_4: Cluster_1_Phi3744_0_s (139)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1079
+._crit_edge.0:102  %Cluster_1_Phi3744_0_s = select i1 %tmp_113_1, i16 %p_read35_read, i16 %p_read33_read
+
+ST_4: Cluster_1_Phi35_0_Cl (140)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1079
+._crit_edge.0:103  %Cluster_1_Phi35_0_Cl = select i1 %tmp_113_1, i16 %p_read33_read, i16 %p_read35_read
+
+ST_4: Cluster_1_Eta29_0_Cl (144)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1098
+._crit_edge.0:107  %Cluster_1_Eta29_0_Cl = select i1 %tmp_118_1, i16 %p_read4, i16 %p_read
+
+ST_4: Cluster_1_Eta27_0_Cl (145)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1098
+._crit_edge.0:108  %Cluster_1_Eta27_0_Cl = select i1 %tmp_118_1, i16 %p_read, i16 %p_read4
+
+ST_4: Cluster_1_Phi44_0_Cl (146)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1098
+._crit_edge.0:109  %Cluster_1_Phi44_0_Cl = select i1 %tmp_118_1, i16 %p_read5, i16 %p_read1
+
+ST_4: Cluster_1_Phi42_0_Cl (147)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1098
+._crit_edge.0:110  %Cluster_1_Phi42_0_Cl = select i1 %tmp_118_1, i16 %p_read1, i16 %p_read5
+
+ST_4: Cluster_1_Eta30_0_Cl (151)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1110
+._crit_edge.0:114  %Cluster_1_Eta30_0_Cl = select i1 %tmp_123_1, i16 %p_read6, i16 %p_read2
+
+ST_4: Cluster_1_Eta28_0_Cl (152)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1110
+._crit_edge.0:115  %Cluster_1_Eta28_0_Cl = select i1 %tmp_123_1, i16 %p_read2, i16 %p_read6
+
+ST_4: Cluster_1_Phi45_0_Cl (153)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1110
+._crit_edge.0:116  %Cluster_1_Phi45_0_Cl = select i1 %tmp_123_1, i16 %p_read7, i16 %p_read3
+
+ST_4: Cluster_1_Phi43_0_Cl (154)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1110
+._crit_edge.0:117  %Cluster_1_Phi43_0_Cl = select i1 %tmp_123_1, i16 %p_read3, i16 %p_read7
+
+ST_4: Cluster_1_Eta_0_rea_1 (158)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:121  %Cluster_1_Eta_0_rea_1 = select i1 %tmp_35, i16 %Cluster_1_Eta18_0_Cl, i16 %Cluster_1_Eta17_0_Cl
+
+ST_4: Cluster_1_Eta_1_rea_1 (159)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:122  %Cluster_1_Eta_1_rea_1 = select i1 %tmp_35, i16 %Cluster_1_Eta17_0_Cl, i16 %Cluster_1_Eta18_0_Cl
+
+ST_4: Cluster_1_Phi_0_rea_1 (160)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:123  %Cluster_1_Phi_0_rea_1 = select i1 %tmp_35, i16 %Cluster_1_Phi33_0_Cl, i16 %Cluster_1_Phi32_0_Cl
+
+ST_4: Cluster_1_Phi_1_rea_1 (161)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:124  %Cluster_1_Phi_1_rea_1 = select i1 %tmp_35, i16 %Cluster_1_Phi32_0_Cl, i16 %Cluster_1_Phi33_0_Cl
+
+ST_4: Cluster_1_Eta_2_rea_1 (165)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:128  %Cluster_1_Eta_2_rea_1 = select i1 %tmp_128_1, i16 %Cluster_1_Eta16_0_Cl, i16 %Cluster_1_Eta_0_Clus
+
+ST_4: Cluster_1_Eta_3_rea_1 (166)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:129  %Cluster_1_Eta_3_rea_1 = select i1 %tmp_128_1, i16 %Cluster_1_Eta_0_Clus, i16 %Cluster_1_Eta16_0_Cl
+
+ST_4: Cluster_1_Phi_2_rea_1 (167)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:130  %Cluster_1_Phi_2_rea_1 = select i1 %tmp_128_1, i16 %Cluster_1_Phi31_0_Cl, i16 %Cluster_1_Phi_0_Clus
+
+ST_4: Cluster_1_Phi_3_rea_1 (168)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128
+._crit_edge.0:131  %Cluster_1_Phi_3_rea_1 = select i1 %tmp_128_1, i16 %Cluster_1_Phi_0_Clus, i16 %Cluster_1_Phi31_0_Cl
+
+ST_4: Cluster_1_Eta_4_rea_1 (172)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128 (out node of the LUT)
+._crit_edge.0:135  %Cluster_1_Eta_4_rea_1 = select i1 %tmp_128_2, i16 %Cluster_1_Eta22_0_Cl, i16 %Cluster_1_Eta21_0_Cl
+
+ST_4: Cluster_1_Eta_5_rea_1 (173)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128 (out node of the LUT)
+._crit_edge.0:136  %Cluster_1_Eta_5_rea_1 = select i1 %tmp_128_2, i16 %Cluster_1_Eta21_0_Cl, i16 %Cluster_1_Eta22_0_Cl
+
+ST_4: Cluster_1_Phi_4_rea_1 (174)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128 (out node of the LUT)
+._crit_edge.0:137  %Cluster_1_Phi_4_rea_1 = select i1 %tmp_128_2, i16 %Cluster_1_Phi3744_0_s, i16 %Cluster_1_Phi36_0_Cl
+
+ST_4: Cluster_1_Phi_5_rea_1 (175)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128 (out node of the LUT)
+._crit_edge.0:138  %Cluster_1_Phi_5_rea_1 = select i1 %tmp_128_2, i16 %Cluster_1_Phi36_0_Cl, i16 %Cluster_1_Phi3744_0_s
+
+ST_4: Cluster_1_Eta_6_rea_1 (179)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128 (out node of the LUT)
+._crit_edge.0:142  %Cluster_1_Eta_6_rea_1 = select i1 %tmp_128_3, i16 %Cluster_1_Eta2025_0_s, i16 %Cluster_1_Eta19_0_Cl
+
+ST_4: Cluster_1_Eta_7_rea_1 (180)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128 (out node of the LUT)
+._crit_edge.0:143  %Cluster_1_Eta_7_rea_1 = select i1 %tmp_128_3, i16 %Cluster_1_Eta19_0_Cl, i16 %Cluster_1_Eta2025_0_s
+
+ST_4: Cluster_1_Phi_6_rea_1 (181)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128 (out node of the LUT)
+._crit_edge.0:144  %Cluster_1_Phi_6_rea_1 = select i1 %tmp_128_3, i16 %Cluster_1_Phi35_0_Cl, i16 %Cluster_1_Phi34_0_Cl
+
+ST_4: Cluster_1_Phi_7_rea_1 (182)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128 (out node of the LUT)
+._crit_edge.0:145  %Cluster_1_Phi_7_rea_1 = select i1 %tmp_128_3, i16 %Cluster_1_Phi34_0_Cl, i16 %Cluster_1_Phi35_0_Cl
+
+ST_4: Cluster_1_Eta_12_re (186)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1144 (grouped into LUT with out node p_read28_read_i)
+._crit_edge.0:149  %Cluster_1_Eta_12_re = select i1 %tmp_133_2, i16 %Cluster_1_Eta30_0_Cl, i16 %Cluster_1_Eta29_0_Cl
+
+ST_4: Cluster_1_Eta_13_re (187)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1144 (grouped into LUT with out node p_read29_read_i)
+._crit_edge.0:150  %Cluster_1_Eta_13_re = select i1 %tmp_133_2, i16 %Cluster_1_Eta29_0_Cl, i16 %Cluster_1_Eta30_0_Cl
+
+ST_4: Cluster_1_Phi_12_re (188)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1144 (grouped into LUT with out node p_read44_read_i)
+._crit_edge.0:151  %Cluster_1_Phi_12_re = select i1 %tmp_133_2, i16 %Cluster_1_Phi45_0_Cl, i16 %Cluster_1_Phi44_0_Cl
+
+ST_4: Cluster_1_Phi_13_re (189)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1144 (grouped into LUT with out node p_read45_read_i)
+._crit_edge.0:152  %Cluster_1_Phi_13_re = select i1 %tmp_133_2, i16 %Cluster_1_Phi44_0_Cl, i16 %Cluster_1_Phi45_0_Cl
+
+ST_4: Cluster_1_Eta_14_re (193)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1144 (grouped into LUT with out node p_read30_read_i)
+._crit_edge.0:156  %Cluster_1_Eta_14_re = select i1 %tmp_133_3, i16 %Cluster_1_Eta28_0_Cl, i16 %Cluster_1_Eta27_0_Cl
+
+ST_4: Cluster_1_Eta_15_re (194)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1144 (grouped into LUT with out node p_read31_read_i)
+._crit_edge.0:157  %Cluster_1_Eta_15_re = select i1 %tmp_133_3, i16 %Cluster_1_Eta27_0_Cl, i16 %Cluster_1_Eta28_0_Cl
+
+ST_4: Cluster_1_Phi_14_re (195)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1144 (grouped into LUT with out node p_read46_read_i)
+._crit_edge.0:158  %Cluster_1_Phi_14_re = select i1 %tmp_133_3, i16 %Cluster_1_Phi43_0_Cl, i16 %Cluster_1_Phi42_0_Cl
+
+ST_4: Cluster_1_Phi_15_re (196)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1144 (grouped into LUT with out node p_read47_read_i)
+._crit_edge.0:159  %Cluster_1_Phi_15_re = select i1 %tmp_133_3, i16 %Cluster_1_Phi42_0_Cl, i16 %Cluster_1_Phi43_0_Cl
+
+ST_4: p_read28_read_i (199)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:162  %p_read28_read_i = select i1 %tmp_169_4_i, i16 %Cluster_1_Eta_12_re, i16 %Cluster_1_Eta_4_rea_1
+
+ST_4: p_read44_read_i (200)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:163  %p_read44_read_i = select i1 %tmp_169_4_i, i16 %Cluster_1_Phi_12_re, i16 %Cluster_1_Phi_4_rea_1
+
+ST_4: p_read29_read_i (203)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:166  %p_read29_read_i = select i1 %tmp_169_5_i, i16 %Cluster_1_Eta_13_re, i16 %Cluster_1_Eta_5_rea_1
+
+ST_4: p_read45_read_i (204)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:167  %p_read45_read_i = select i1 %tmp_169_5_i, i16 %Cluster_1_Phi_13_re, i16 %Cluster_1_Phi_5_rea_1
+
+ST_4: p_read30_read_i (207)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:170  %p_read30_read_i = select i1 %tmp_169_6_i, i16 %Cluster_1_Eta_14_re, i16 %Cluster_1_Eta_6_rea_1
+
+ST_4: p_read46_read_i (208)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:171  %p_read46_read_i = select i1 %tmp_169_6_i, i16 %Cluster_1_Phi_14_re, i16 %Cluster_1_Phi_6_rea_1
+
+ST_4: p_read31_read_i (211)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:174  %p_read31_read_i = select i1 %tmp_169_7_i, i16 %Cluster_1_Eta_15_re, i16 %Cluster_1_Eta_7_rea_1
+
+ST_4: p_read47_read_i (212)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:175  %p_read47_read_i = select i1 %tmp_169_7_i, i16 %Cluster_1_Phi_15_re, i16 %Cluster_1_Phi_7_rea_1
+
+ST_4: tmp_159_i (213)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:176  %tmp_159_i = icmp ugt i16 %p_read12_read4_i, %Cluster_1_Deposits_0_1
+
+ST_4: Cluster_1_Deposits4_1 (214)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:177  %Cluster_1_Deposits4_1 = select i1 %tmp_159_i, i16 %p_read12_read4_i, i16 %Cluster_1_Deposits_0_1
+
+ST_4: Cluster_1_Deposits_0_1_7 (215)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:178  %Cluster_1_Deposits_0_1_7 = select i1 %tmp_159_i, i16 %Cluster_1_Deposits_0_1, i16 %p_read12_read4_i
+
+ST_4: Cluster_1_Eta19_0_Cl_1 (216)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:179  %Cluster_1_Eta19_0_Cl_1 = select i1 %tmp_159_i, i16 %p_read28_read_i, i16 %Cluster_1_Eta_0_rea_1
+
+ST_4: Cluster_1_Eta_0_Clus_1 (217)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:180  %Cluster_1_Eta_0_Clus_1 = select i1 %tmp_159_i, i16 %Cluster_1_Eta_0_rea_1, i16 %p_read28_read_i
+
+ST_4: Cluster_1_Phi34_0_Cl_1 (218)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:181  %Cluster_1_Phi34_0_Cl_1 = select i1 %tmp_159_i, i16 %p_read44_read_i, i16 %Cluster_1_Phi_0_rea_1
+
+ST_4: Cluster_1_Phi_0_Clus_1 (219)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:182  %Cluster_1_Phi_0_Clus_1 = select i1 %tmp_159_i, i16 %Cluster_1_Phi_0_rea_1, i16 %p_read44_read_i
+
+ST_4: tmp_173_1_i (220)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:183  %tmp_173_1_i = icmp ugt i16 %p_read13_read5_i, %Cluster_1_Deposits_1_7
+
+ST_4: Cluster_1_Deposits5_1 (221)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:184  %Cluster_1_Deposits5_1 = select i1 %tmp_173_1_i, i16 %p_read13_read5_i, i16 %Cluster_1_Deposits_1_7
+
+ST_4: Cluster_1_Deposits12_2 (222)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:185  %Cluster_1_Deposits12_2 = select i1 %tmp_173_1_i, i16 %Cluster_1_Deposits_1_7, i16 %p_read13_read5_i
+
+ST_4: Cluster_1_Eta2025_0_1 (223)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:186  %Cluster_1_Eta2025_0_1 = select i1 %tmp_173_1_i, i16 %p_read29_read_i, i16 %Cluster_1_Eta_1_rea_1
+
+ST_4: Cluster_1_Eta16_0_Cl_1 (224)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:187  %Cluster_1_Eta16_0_Cl_1 = select i1 %tmp_173_1_i, i16 %Cluster_1_Eta_1_rea_1, i16 %p_read29_read_i
+
+ST_4: Cluster_1_Phi35_0_Cl_1 (225)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:188  %Cluster_1_Phi35_0_Cl_1 = select i1 %tmp_173_1_i, i16 %p_read45_read_i, i16 %Cluster_1_Phi_1_rea_1
+
+ST_4: Cluster_1_Phi31_0_Cl_1 (226)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:189  %Cluster_1_Phi31_0_Cl_1 = select i1 %tmp_173_1_i, i16 %Cluster_1_Phi_1_rea_1, i16 %p_read45_read_i
+
+ST_4: tmp_173_2_i (227)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:190  %tmp_173_2_i = icmp ugt i16 %p_read14_read6_i, %Cluster_1_Deposits_2_1
+
+ST_4: Cluster_1_Deposits6_1 (228)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:191  %Cluster_1_Deposits6_1 = select i1 %tmp_173_2_i, i16 %p_read14_read6_i, i16 %Cluster_1_Deposits_2_1
+
+ST_4: Cluster_1_Deposits2_1 (229)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:192  %Cluster_1_Deposits2_1 = select i1 %tmp_173_2_i, i16 %Cluster_1_Deposits_2_1, i16 %p_read14_read6_i
+
+ST_4: tmp_173_3_i (234)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:197  %tmp_173_3_i = icmp ugt i16 %p_read15_read7_i, %Cluster_1_Deposits_3_1
+
+ST_4: Cluster_1_Deposits7_1 (235)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:198  %Cluster_1_Deposits7_1 = select i1 %tmp_173_3_i, i16 %p_read15_read7_i, i16 %Cluster_1_Deposits_3_1
+
+ST_4: Cluster_1_Deposits3_1 (236)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:199  %Cluster_1_Deposits3_1 = select i1 %tmp_173_3_i, i16 %Cluster_1_Deposits_3_1, i16 %p_read15_read7_i
+
+ST_4: tmp_160_i (241)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:975->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:204  %tmp_160_i = icmp ult i16 %Cluster_1_Deposits4_1, %Cluster_1_Deposits6_1
+
+ST_4: tmp_161_i (248)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:988->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:211  %tmp_161_i = icmp ult i16 %Cluster_1_Deposits5_1, %Cluster_1_Deposits7_1
+
+ST_4: tmp_182_1_i (255)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:975->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:218  %tmp_182_1_i = icmp ult i16 %Cluster_1_Deposits_0_1_7, %Cluster_1_Deposits2_1
+
+ST_4: tmp_187_1_i (259)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:988->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:222  %tmp_187_1_i = icmp ult i16 %Cluster_1_Deposits12_2, %Cluster_1_Deposits3_1
+
+
+ <State 5>: 2.71ns
+ST_5: Cluster_1_Eta21_0_Cl_1 (230)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:193  %Cluster_1_Eta21_0_Cl_1 = select i1 %tmp_173_2_i, i16 %p_read30_read_i, i16 %Cluster_1_Eta_2_rea_1
+
+ST_5: Cluster_1_Eta17_0_Cl_1 (231)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (grouped into LUT with out node Cluster_1_Eta21_1_Cl)
+._crit_edge.0:194  %Cluster_1_Eta17_0_Cl_1 = select i1 %tmp_173_2_i, i16 %Cluster_1_Eta_2_rea_1, i16 %p_read30_read_i
+
+ST_5: Cluster_1_Phi36_0_Cl_1 (232)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:195  %Cluster_1_Phi36_0_Cl_1 = select i1 %tmp_173_2_i, i16 %p_read46_read_i, i16 %Cluster_1_Phi_2_rea_1
+
+ST_5: Cluster_1_Phi32_0_Cl_1 (233)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (grouped into LUT with out node Cluster_1_Phi36_1_Cl)
+._crit_edge.0:196  %Cluster_1_Phi32_0_Cl_1 = select i1 %tmp_173_2_i, i16 %Cluster_1_Phi_2_rea_1, i16 %p_read46_read_i
+
+ST_5: Cluster_1_Eta22_0_Cl_1 (237)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:200  %Cluster_1_Eta22_0_Cl_1 = select i1 %tmp_173_3_i, i16 %p_read31_read_i, i16 %Cluster_1_Eta_3_rea_1
+
+ST_5: Cluster_1_Eta18_0_Cl_1 (238)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (grouped into LUT with out node Cluster_1_Eta22_1_Cl)
+._crit_edge.0:201  %Cluster_1_Eta18_0_Cl_1 = select i1 %tmp_173_3_i, i16 %Cluster_1_Eta_3_rea_1, i16 %p_read31_read_i
+
+ST_5: Cluster_1_Phi3744_0_1 (239)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:202  %Cluster_1_Phi3744_0_1 = select i1 %tmp_173_3_i, i16 %p_read47_read_i, i16 %Cluster_1_Phi_3_rea_1
+
+ST_5: Cluster_1_Phi33_0_Cl_1 (240)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (grouped into LUT with out node Cluster_1_Phi3744_1_s)
+._crit_edge.0:203  %Cluster_1_Phi33_0_Cl_1 = select i1 %tmp_173_3_i, i16 %Cluster_1_Phi_3_rea_1, i16 %p_read47_read_i
+
+ST_5: Cluster_1_Deposits2_2 (242)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:975->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:205  %Cluster_1_Deposits2_2 = select i1 %tmp_160_i, i16 %Cluster_1_Deposits6_1, i16 %Cluster_1_Deposits4_1
+
+ST_5: Cluster_1_Deposits_1_13 (243)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:975->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:206  %Cluster_1_Deposits_1_13 = select i1 %tmp_160_i, i16 %Cluster_1_Deposits4_1, i16 %Cluster_1_Deposits6_1
+
+ST_5: Cluster_1_Eta17_1_Cl (244)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:975->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:207  %Cluster_1_Eta17_1_Cl = select i1 %tmp_160_i, i16 %Cluster_1_Eta21_0_Cl_1, i16 %Cluster_1_Eta19_0_Cl_1
+
+ST_5: Cluster_1_Eta_1_Clus (245)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:975->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:208  %Cluster_1_Eta_1_Clus = select i1 %tmp_160_i, i16 %Cluster_1_Eta19_0_Cl_1, i16 %Cluster_1_Eta21_0_Cl_1
+
+ST_5: Cluster_1_Phi32_1_Cl (246)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:975->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:209  %Cluster_1_Phi32_1_Cl = select i1 %tmp_160_i, i16 %Cluster_1_Phi36_0_Cl_1, i16 %Cluster_1_Phi34_0_Cl_1
+
+ST_5: Cluster_1_Phi_1_Clus (247)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:975->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:210  %Cluster_1_Phi_1_Clus = select i1 %tmp_160_i, i16 %Cluster_1_Phi34_0_Cl_1, i16 %Cluster_1_Phi36_0_Cl_1
+
+ST_5: Cluster_1_Deposits3_2 (249)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:988->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:212  %Cluster_1_Deposits3_2 = select i1 %tmp_161_i, i16 %Cluster_1_Deposits7_1, i16 %Cluster_1_Deposits5_1
+
+ST_5: Cluster_1_Deposits12_3 (250)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:988->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:213  %Cluster_1_Deposits12_3 = select i1 %tmp_161_i, i16 %Cluster_1_Deposits5_1, i16 %Cluster_1_Deposits7_1
+
+ST_5: Cluster_1_Eta18_1_Cl (251)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:988->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:214  %Cluster_1_Eta18_1_Cl = select i1 %tmp_161_i, i16 %Cluster_1_Eta22_0_Cl_1, i16 %Cluster_1_Eta2025_0_1
+
+ST_5: Cluster_1_Eta16_1_Cl (252)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:988->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:215  %Cluster_1_Eta16_1_Cl = select i1 %tmp_161_i, i16 %Cluster_1_Eta2025_0_1, i16 %Cluster_1_Eta22_0_Cl_1
+
+ST_5: Cluster_1_Phi33_1_Cl (253)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:988->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:216  %Cluster_1_Phi33_1_Cl = select i1 %tmp_161_i, i16 %Cluster_1_Phi3744_0_1, i16 %Cluster_1_Phi35_0_Cl_1
+
+ST_5: Cluster_1_Phi31_1_Cl (254)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:988->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:217  %Cluster_1_Phi31_1_Cl = select i1 %tmp_161_i, i16 %Cluster_1_Phi35_0_Cl_1, i16 %Cluster_1_Phi3744_0_1
+
+ST_5: Cluster_1_Deposits6_2 (256)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:975->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:219  %Cluster_1_Deposits6_2 = select i1 %tmp_182_1_i, i16 %Cluster_1_Deposits2_1, i16 %Cluster_1_Deposits_0_1_7
+
+ST_5: Cluster_1_Eta21_1_Cl (257)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:975->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:220  %Cluster_1_Eta21_1_Cl = select i1 %tmp_182_1_i, i16 %Cluster_1_Eta17_0_Cl_1, i16 %Cluster_1_Eta_0_Clus_1
+
+ST_5: Cluster_1_Phi36_1_Cl (258)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:975->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:221  %Cluster_1_Phi36_1_Cl = select i1 %tmp_182_1_i, i16 %Cluster_1_Phi32_0_Cl_1, i16 %Cluster_1_Phi_0_Clus_1
+
+ST_5: Cluster_1_Deposits7_2 (260)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:988->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:223  %Cluster_1_Deposits7_2 = select i1 %tmp_187_1_i, i16 %Cluster_1_Deposits3_1, i16 %Cluster_1_Deposits12_2
+
+ST_5: Cluster_1_Eta22_1_Cl (261)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:988->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:224  %Cluster_1_Eta22_1_Cl = select i1 %tmp_187_1_i, i16 %Cluster_1_Eta18_0_Cl_1, i16 %Cluster_1_Eta16_0_Cl_1
+
+ST_5: Cluster_1_Phi3744_1_s (262)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:988->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:225  %Cluster_1_Phi3744_1_s = select i1 %tmp_187_1_i, i16 %Cluster_1_Phi33_0_Cl_1, i16 %Cluster_1_Phi31_0_Cl_1
+
+ST_5: tmp_162_i (263)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:226  %tmp_162_i = icmp ult i16 %Cluster_1_Deposits2_2, %Cluster_1_Deposits3_2
+
+ST_5: Cluster_1_Deposits12_4 (264)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:227  %Cluster_1_Deposits12_4 = select i1 %tmp_162_i, i16 %Cluster_1_Deposits3_2, i16 %Cluster_1_Deposits2_2
+
+ST_5: Cluster_1_Deposits_2_14 (265)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:228  %Cluster_1_Deposits_2_14 = select i1 %tmp_162_i, i16 %Cluster_1_Deposits2_2, i16 %Cluster_1_Deposits3_2
+
+ST_5: Cluster_1_Eta16_2_Cl (266)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:229  %Cluster_1_Eta16_2_Cl = select i1 %tmp_162_i, i16 %Cluster_1_Eta18_1_Cl, i16 %Cluster_1_Eta17_1_Cl
+
+ST_5: Cluster_1_Eta_2_Clus (267)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:230  %Cluster_1_Eta_2_Clus = select i1 %tmp_162_i, i16 %Cluster_1_Eta17_1_Cl, i16 %Cluster_1_Eta18_1_Cl
+
+ST_5: Cluster_1_Phi31_2_Cl (268)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:231  %Cluster_1_Phi31_2_Cl = select i1 %tmp_162_i, i16 %Cluster_1_Phi33_1_Cl, i16 %Cluster_1_Phi32_1_Cl
+
+ST_5: Cluster_1_Phi_2_Clus (269)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:232  %Cluster_1_Phi_2_Clus = select i1 %tmp_162_i, i16 %Cluster_1_Phi32_1_Cl, i16 %Cluster_1_Phi33_1_Cl
+
+ST_5: tmp_192_1_i (270)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:233  %tmp_192_1_i = icmp ult i16 %Cluster_1_Deposits_1_13, %Cluster_1_Deposits12_3
+
+ST_5: Cluster_1_Deposits3_3 (271)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:234  %Cluster_1_Deposits3_3 = select i1 %tmp_192_1_i, i16 %Cluster_1_Deposits12_3, i16 %Cluster_1_Deposits_1_13
+
+ST_5: Cluster_1_Deposits2_3 (272)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:235  %Cluster_1_Deposits2_3 = select i1 %tmp_192_1_i, i16 %Cluster_1_Deposits_1_13, i16 %Cluster_1_Deposits12_3
+
+ST_5: Cluster_1_Eta18_2_Cl (273)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:236  %Cluster_1_Eta18_2_Cl = select i1 %tmp_192_1_i, i16 %Cluster_1_Eta16_1_Cl, i16 %Cluster_1_Eta_1_Clus
+
+ST_5: Cluster_1_Eta17_2_Cl (274)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:237  %Cluster_1_Eta17_2_Cl = select i1 %tmp_192_1_i, i16 %Cluster_1_Eta_1_Clus, i16 %Cluster_1_Eta16_1_Cl
+
+ST_5: Cluster_1_Phi33_2_Cl (275)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:238  %Cluster_1_Phi33_2_Cl = select i1 %tmp_192_1_i, i16 %Cluster_1_Phi31_1_Cl, i16 %Cluster_1_Phi_1_Clus
+
+ST_5: Cluster_1_Phi32_2_Cl (276)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:239  %Cluster_1_Phi32_2_Cl = select i1 %tmp_192_1_i, i16 %Cluster_1_Phi_1_Clus, i16 %Cluster_1_Phi31_1_Cl
+
+ST_5: tmp_192_2_i (277)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:240  %tmp_192_2_i = icmp ult i16 %Cluster_1_Deposits6_2, %Cluster_1_Deposits7_2
+
+ST_5: Cluster_1_Deposits5_2 (278)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:241  %Cluster_1_Deposits5_2 = select i1 %tmp_192_2_i, i16 %Cluster_1_Deposits7_2, i16 %Cluster_1_Deposits6_2
+
+ST_5: Cluster_1_Eta2025_2_s (279)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:242  %Cluster_1_Eta2025_2_s = select i1 %tmp_192_2_i, i16 %Cluster_1_Eta22_1_Cl, i16 %Cluster_1_Eta21_1_Cl
+
+ST_5: Cluster_1_Phi35_2_Cl (280)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157 (out node of the LUT)
+._crit_edge.0:243  %Cluster_1_Phi35_2_Cl = select i1 %tmp_192_2_i, i16 %Cluster_1_Phi3744_1_s, i16 %Cluster_1_Phi36_1_Cl
+
+ST_5: newret_i (281)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:244  %newret_i = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } undef, i16 %Cluster_1_Deposits12_4, 0
+
+ST_5: newret2_i (282)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:245  %newret2_i = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret_i, i16 %Cluster_1_Deposits_2_14, 1
+
+ST_5: newret4_i (283)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:246  %newret4_i = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret2_i, i16 %Cluster_1_Deposits3_3, 2
+
+ST_5: newret6_i (284)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:247  %newret6_i = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret4_i, i16 %Cluster_1_Deposits2_3, 3
+
+ST_5: newret8_i (285)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:248  %newret8_i = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret6_i, i16 %Cluster_1_Deposits5_2, 4
+
+ST_5: newret1_i (286)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:249  %newret1_i = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret8_i, i16 %Cluster_1_Eta16_2_Cl, 5
+
+ST_5: newret3_i (287)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:250  %newret3_i = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret1_i, i16 %Cluster_1_Eta_2_Clus, 6
+
+ST_5: newret5_i (288)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:251  %newret5_i = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret3_i, i16 %Cluster_1_Eta18_2_Cl, 7
+
+ST_5: newret7_i (289)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:252  %newret7_i = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret5_i, i16 %Cluster_1_Eta17_2_Cl, 8
+
+ST_5: newret9_i (290)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:253  %newret9_i = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret7_i, i16 %Cluster_1_Eta2025_2_s, 9
+
+ST_5: newret10_i (291)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:254  %newret10_i = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret9_i, i16 %Cluster_1_Phi31_2_Cl, 10
+
+ST_5: newret11_i (292)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:255  %newret11_i = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret10_i, i16 %Cluster_1_Phi_2_Clus, 11
+
+ST_5: newret12_i (293)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:256  %newret12_i = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret11_i, i16 %Cluster_1_Phi33_2_Cl, 12
+
+ST_5: newret13_i (294)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:257  %newret13_i = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret12_i, i16 %Cluster_1_Phi32_2_Cl, 13
+
+ST_5: newret14_i (295)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:258  %newret14_i = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret13_i, i16 %Cluster_1_Phi35_2_Cl, 14
+
+ST_5: StgValue_265 (296)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157
+._crit_edge.0:259  ret { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret14_i
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.16ns, clock uncertainty: 0.52ns.
+
+ <State 1>: 2ns
+The critical path consists of the following:
+	wire read on port 'Cluster_1_Deposits_7' [65]  (0 ns)
+	'icmp' operation ('tmp_99_3', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033) [94]  (1.29 ns)
+	'select' operation ('p_read7_read3', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033) [95]  (0.71 ns)
+
+ <State 2>: 3.29ns
+The critical path consists of the following:
+	wire read on port 'Cluster_1_Deposits_1_5' [61]  (0 ns)
+	'icmp' operation ('tmp_123_1', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1110) [148]  (1.29 ns)
+	'select' operation ('Cluster_1_Deposits3', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1110) [149]  (0.71 ns)
+	'icmp' operation ('tmp_133_2', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1144) [183]  (1.29 ns)
+
+ <State 3>: 2.71ns
+The critical path consists of the following:
+	'select' operation ('Cluster_1_Deposits2_s', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1067) [114]  (0.71 ns)
+	'icmp' operation ('tmp_35', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128) [155]  (1.29 ns)
+	'select' operation ('Cluster_1_Deposits[1]', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128) [157]  (0.71 ns)
+
+ <State 4>: 3.55ns
+The critical path consists of the following:
+	wire read on port 'Cluster_1_Phi_7_rea' [41]  (0 ns)
+	'select' operation ('p_read35_read', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1033) [100]  (0.71 ns)
+	'select' operation ('Cluster_1_Phi3744_0_s', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1079) [139]  (0.71 ns)
+	'select' operation ('Cluster_1_Phi[5]', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1128) [175]  (0.71 ns)
+	'select' operation ('p_read45_read_i', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:920->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157) [204]  (0.71 ns)
+	'select' operation ('Cluster_1_Phi31_0_Cl_1', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:939->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157) [226]  (0.71 ns)
+
+ <State 5>: 2.71ns
+The critical path consists of the following:
+	'select' operation ('Cluster_1_Deposits2_2', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:975->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157) [242]  (0.71 ns)
+	'icmp' operation ('tmp_162_i', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157) [263]  (1.29 ns)
+	'select' operation ('Cluster_1_Deposits12_4', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157) [264]  (0.71 ns)
+	'insertvalue' operation ('newret_i', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157) [281]  (0 ns)
+	'insertvalue' operation ('newret2_i', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1006->/data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1157) [282]  (0 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

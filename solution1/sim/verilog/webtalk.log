@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Webtalk v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Wed Oct 31 22:22:03 2018
+# Process ID: 854994
+# Current directory: /data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog
+# Command line: wbtcv -mode batch -source /data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/xsim.dir/getClustersInCard/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/webtalk.log
+# Journal file: /data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/webtalk.jou
+#-----------------------------------------------------------
+source /data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/xsim.dir/getClustersInCard/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] '/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/xsim.dir/getClustersInCard/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Wed Oct 31 22:22:05 2018. For additional details about this file, please refer to the WebTalk help file at /data/tools/Vivado/2016.4/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Wed Oct 31 22:22:05 2018...

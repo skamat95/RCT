@@ -1299,7 +1299,7 @@ void bitonic_1_4(uint16_t Cluster_1_Deposits[16], uint16_t Cluster_1_Eta[16], ui
 
 
 uint16_t getPeakBinOf5(uint16_t et[5], uint16_t etSum) {
-#pragma HLS PIPELINE II=8
+#pragma HLS PIPELINE II=6
 #pragma HLS ARRAY_PARTITION variable=et complete dim=0
   uint16_t iEtSum = 
     (et[0] >> 1)                +  // 0.5xet[0]
@@ -1328,7 +1328,7 @@ bool getClustersin3x4Region(uint16_t crystals_tower[3][4][5][5],
 			    uint16_t SortedPeakPhi[5]) {
   
 
-#pragma HLS PIPELINE II=8
+#pragma HLS PIPELINE II=6
 
 #pragma HLS ARRAY_PARTITION variable=crystals_tower complete dim=0
 #pragma HLS ARRAY_PARTITION variable=peakEta1 complete dim=0
@@ -1444,7 +1444,7 @@ bool getClustersInTower(uint16_t crystals[NCrystalsPerEtaPhi][NCrystalsPerEtaPhi
                         uint16_t *peakPhi,
                         uint16_t *towerET,
                         uint16_t *clusterET) {
-#pragma HLS PIPELINE II=8
+#pragma HLS PIPELINE II=6
 #pragma HLS ARRAY_PARTITION variable=crystals complete dim=0
   uint16_t phiStripSum[NCrystalsPerEtaPhi];
 #pragma HLS ARRAY_PARTITION variable=phiStripSum complete dim=0
@@ -1513,7 +1513,7 @@ uint16_t biggerLR(uint16_t clusterETL, uint16_t clusterETR){
 
 
 //
-#pragma HLS PIPELINE II=8
+#pragma HLS PIPELINE II=6
 
   uint16_t clusterf = 0;
   
@@ -1576,9 +1576,11 @@ bool getClustersInCard(uint16_t crystals[NCaloLayer1Eta][NCaloLayer1Phi][NCrysta
                        uint16_t peakPhi[NCaloLayer1Eta][NCaloLayer1Phi],
                        uint16_t towerET[NCaloLayer1Eta][NCaloLayer1Phi],
                        uint16_t clusterET[NCaloLayer1Eta][NCaloLayer1Phi],
-		       uint16_t SortedCluster_ET[30],		       uint16_t SortedPeak_Eta[30],
-		       uint16_t SortedPeak_Phi[30]) {
-#pragma HLS PIPELINE II=8
+					   uint16_t SortedCluster_ET[30],
+					   uint16_t SortedPeak_Eta[30],
+					   uint16_t SortedPeak_Phi[30]) {
+
+#pragma HLS PIPELINE II=6
 #pragma HLS ARRAY_PARTITION variable=crystals complete dim=0
 #pragma HLS ARRAY_PARTITION variable=peakEta complete dim=0
 #pragma HLS ARRAY_PARTITION variable=peakPhi complete dim=0
@@ -1612,9 +1614,6 @@ bool getClustersInCard(uint16_t crystals[NCaloLayer1Eta][NCaloLayer1Phi][NCrysta
 #pragma HLS ARRAY_PARTITION variable=preMergeTowerET complete dim=0
 #pragma HLS ARRAY_PARTITION variable=preMergeClusterET complete dim=0
 
-
-
-
 #pragma HLS ARRAY_PARTITION variable=SortedCluster_ET1 complete dim=0
 #pragma HLS ARRAY_PARTITION variable=SortedPeak_Eta1 complete dim=0
 #pragma HLS ARRAY_PARTITION variable=SortedPeak_Phi1 complete dim=0
@@ -1647,7 +1646,7 @@ bool getClustersInCard(uint16_t crystals[NCaloLayer1Eta][NCaloLayer1Phi][NCrysta
   
 
   int a=0;
-  for(int i =0; i<15; i+=3) {
+  for(int i =0; i<6; i+=3) {		//changed here from 15 to 6
 #pragma HLS UNROLL
     for(int tEta = 0; tEta < 3; tEta++) {
 #pragma HLS UNROLL
@@ -1705,48 +1704,7 @@ bool getClustersInCard(uint16_t crystals[NCaloLayer1Eta][NCaloLayer1Phi][NCrysta
           
   }
   
-  for(int tEta = 0; tEta < 2; tEta++) {
-#pragma HLS UNROLL
-    for(int tPhi = 0; tPhi < NCaloLayer1Phi; tPhi++) {
-#pragma HLS UNROLL
-      for( int ceta =0; ceta<5; ceta++) {
-#pragma HLS UNROLL
-	for( int cphi =0; cphi<5; cphi++) {
-#pragma HLS UNROLL
-	  crystals_tower[tEta][tPhi][ceta][cphi] = crystals[tEta+15][tPhi][ceta][cphi];
-	}
 
-      }
-    }
-  }
-  getClustersin3x4Region(crystals_tower, preMergePeakEta,
-			 preMergePeakPhi,
-			 preMergeTowerET,
-			 preMergeClusterET,
-			 sortedclusteret,
-			 sortedpeaketa,
-			 sortedpeakphi);
-
-
-  SortedCluster_ET1[25+0] = sortedclusteret[0];
-  SortedCluster_ET1[25+1] = sortedclusteret[1];
-  SortedCluster_ET1[25+2] = sortedclusteret[2];
-  SortedCluster_ET1[25+3] = sortedclusteret[3];
-  SortedCluster_ET1[25+4] = sortedclusteret[4];
-
-
-  SortedPeak_Eta1[25+0] = sortedpeaketa[0];
-  SortedPeak_Eta1[25+1] = sortedpeaketa[1];
-  SortedPeak_Eta1[25+2] = sortedpeaketa[2];
-  SortedPeak_Eta1[25+3] = sortedpeaketa[3];
-  SortedPeak_Eta1[25+4] = sortedpeaketa[4];
-
-
-  SortedPeak_Phi1[25+0] = sortedpeakphi[0];
-  SortedPeak_Phi1[25+1] = sortedpeakphi[1];
-  SortedPeak_Phi1[25+2] = sortedpeakphi[2];
-  SortedPeak_Phi1[25+3] = sortedpeakphi[3];
-  SortedPeak_Phi1[25+4] = sortedpeakphi[4];
 
 
   uint16_t peakEta3[32];

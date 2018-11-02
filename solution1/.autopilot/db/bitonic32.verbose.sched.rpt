@@ -1,0 +1,867 @@
+
+
+================================================================
+== Vivado HLS Report for 'bitonic32'
+================================================================
+* Date:           Wed Oct 31 22:16:24 2018
+
+* Version:        2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)
+* Project:        RCT_2016_project
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1927-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.16|      3.29|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    2|    2|    3|    3| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 3, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 3
+* Pipeline: 1
+  Pipeline-0: II = 3, D = 3, States = { 1 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+* FSM state operations: 
+
+ <State 1>: 2.00ns
+ST_1: ClusterDeposits_9_r_2 (75)  [1/1] 0.00ns
+._crit_edge.0:32  %ClusterDeposits_9_r_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterDeposits_9_r)
+
+ST_1: ClusterDeposits_8_r_2 (76)  [1/1] 0.00ns
+._crit_edge.0:33  %ClusterDeposits_8_r_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterDeposits_8_r)
+
+ST_1: ClusterDeposits_1_r_2 (83)  [1/1] 0.00ns
+._crit_edge.0:40  %ClusterDeposits_1_r_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterDeposits_1_r)
+
+ST_1: ClusterDeposits_0_r_2 (84)  [1/1] 0.00ns
+._crit_edge.0:41  %ClusterDeposits_0_r_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterDeposits_0_r)
+
+ST_1: tmp_s (89)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31
+._crit_edge.0:46  %tmp_s = icmp ult i16 %ClusterDeposits_0_r_2, %ClusterDeposits_8_r_2
+
+ST_1: p_read8_read (90)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31
+._crit_edge.0:47  %p_read8_read = select i1 %tmp_s, i16 %ClusterDeposits_8_r_2, i16 %ClusterDeposits_0_r_2
+
+ST_1: p_read_read8 (91)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31
+._crit_edge.0:48  %p_read_read8 = select i1 %tmp_s, i16 %ClusterDeposits_0_r_2, i16 %ClusterDeposits_8_r_2
+
+ST_1: tmp_342_1 (96)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31
+._crit_edge.0:53  %tmp_342_1 = icmp ult i16 %ClusterDeposits_1_r_2, %ClusterDeposits_9_r_2
+
+ST_1: p_read9_read1 (97)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31
+._crit_edge.0:54  %p_read9_read1 = select i1 %tmp_342_1, i16 %ClusterDeposits_9_r_2, i16 %ClusterDeposits_1_r_2
+
+ST_1: p_read1_read9 (98)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31
+._crit_edge.0:55  %p_read1_read9 = select i1 %tmp_342_1, i16 %ClusterDeposits_1_r_2, i16 %ClusterDeposits_9_r_2
+
+
+ <State 2>: 3.29ns
+ST_2: ClusterDeposits_7_r_2 (77)  [1/1] 0.00ns
+._crit_edge.0:34  %ClusterDeposits_7_r_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterDeposits_7_r)
+
+ST_2: ClusterDeposits_6_r_2 (78)  [1/1] 0.00ns
+._crit_edge.0:35  %ClusterDeposits_6_r_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterDeposits_6_r)
+
+ST_2: ClusterDeposits_5_r_2 (79)  [1/1] 0.00ns
+._crit_edge.0:36  %ClusterDeposits_5_r_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterDeposits_5_r)
+
+ST_2: ClusterDeposits_4_r_2 (80)  [1/1] 0.00ns
+._crit_edge.0:37  %ClusterDeposits_4_r_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterDeposits_4_r)
+
+ST_2: ClusterDeposits_3_r_2 (81)  [1/1] 0.00ns
+._crit_edge.0:38  %ClusterDeposits_3_r_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterDeposits_3_r)
+
+ST_2: ClusterDeposits_2_r_2 (82)  [1/1] 0.00ns
+._crit_edge.0:39  %ClusterDeposits_2_r_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterDeposits_2_r)
+
+ST_2: tmp_40 (103)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:60  %tmp_40 = icmp ult i16 %p_read8_read, %ClusterDeposits_4_r_2
+
+ST_2: ClusterDeposits4_1_C (104)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:61  %ClusterDeposits4_1_C = select i1 %tmp_40, i16 %ClusterDeposits_4_r_2, i16 %p_read8_read
+
+ST_2: ClusterDeposits_1_Cl (105)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:62  %ClusterDeposits_1_Cl = select i1 %tmp_40, i16 %p_read8_read, i16 %ClusterDeposits_4_r_2
+
+ST_2: tmp_350_1 (110)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:67  %tmp_350_1 = icmp ult i16 %p_read9_read1, %ClusterDeposits_5_r_2
+
+ST_2: ClusterDeposits5_1_C (111)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:68  %ClusterDeposits5_1_C = select i1 %tmp_350_1, i16 %ClusterDeposits_5_r_2, i16 %p_read9_read1
+
+ST_2: ClusterDeposits12_1_s (112)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:69  %ClusterDeposits12_1_s = select i1 %tmp_350_1, i16 %p_read9_read1, i16 %ClusterDeposits_5_r_2
+
+ST_2: tmp_350_2 (117)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:74  %tmp_350_2 = icmp ult i16 %ClusterDeposits_2_r_2, %ClusterDeposits_6_r_2
+
+ST_2: ClusterDeposits6_1_C (118)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:75  %ClusterDeposits6_1_C = select i1 %tmp_350_2, i16 %ClusterDeposits_6_r_2, i16 %ClusterDeposits_2_r_2
+
+ST_2: ClusterDeposits2_1_C (119)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:76  %ClusterDeposits2_1_C = select i1 %tmp_350_2, i16 %ClusterDeposits_2_r_2, i16 %ClusterDeposits_6_r_2
+
+ST_2: tmp_350_3 (124)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:81  %tmp_350_3 = icmp ult i16 %ClusterDeposits_3_r_2, %ClusterDeposits_7_r_2
+
+ST_2: ClusterDeposits7_1_C (125)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:82  %ClusterDeposits7_1_C = select i1 %tmp_350_3, i16 %ClusterDeposits_7_r_2, i16 %ClusterDeposits_3_r_2
+
+ST_2: ClusterDeposits3_1_C (126)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:83  %ClusterDeposits3_1_C = select i1 %tmp_350_3, i16 %ClusterDeposits_3_r_2, i16 %ClusterDeposits_7_r_2
+
+ST_2: tmp_41 (131)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:133
+._crit_edge.0:88  %tmp_41 = icmp ult i16 %ClusterDeposits4_1_C, %ClusterDeposits6_1_C
+
+ST_2: tmp_42 (138)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145
+._crit_edge.0:95  %tmp_42 = icmp ult i16 %ClusterDeposits5_1_C, %ClusterDeposits7_1_C
+
+ST_2: tmp_367_1 (145)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:133
+._crit_edge.0:102  %tmp_367_1 = icmp ult i16 %ClusterDeposits_1_Cl, %ClusterDeposits2_1_C
+
+ST_2: tmp_372_1 (152)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145
+._crit_edge.0:109  %tmp_372_1 = icmp ult i16 %ClusterDeposits12_1_s, %ClusterDeposits3_1_C
+
+
+ <State 3>: 2.84ns
+ST_3: ClusterPhi_15_read_1 (43)  [1/1] 0.00ns
+._crit_edge.0:0  %ClusterPhi_15_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterPhi_15_read)
+
+ST_3: ClusterPhi_14_read_1 (44)  [1/1] 0.00ns
+._crit_edge.0:1  %ClusterPhi_14_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterPhi_14_read)
+
+ST_3: ClusterPhi_13_read_1 (45)  [1/1] 0.00ns
+._crit_edge.0:2  %ClusterPhi_13_read_1 = call i1 @_ssdm_op_Read.ap_auto.i1(i1 %ClusterPhi_13_read)
+
+ST_3: ClusterPhi_12_read_1 (46)  [1/1] 0.00ns
+._crit_edge.0:3  %ClusterPhi_12_read_1 = call i1 @_ssdm_op_Read.ap_auto.i1(i1 %ClusterPhi_12_read)
+
+ST_3: ClusterPhi_11_read_1 (47)  [1/1] 0.00ns
+._crit_edge.0:4  %ClusterPhi_11_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterPhi_11_read)
+
+ST_3: ClusterPhi_10_read_1 (48)  [1/1] 0.00ns
+._crit_edge.0:5  %ClusterPhi_10_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterPhi_10_read)
+
+ST_3: ClusterPhi_9_read_2 (49)  [1/1] 0.00ns
+._crit_edge.0:6  %ClusterPhi_9_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterPhi_9_read)
+
+ST_3: ClusterPhi_8_read_2 (50)  [1/1] 0.00ns
+._crit_edge.0:7  %ClusterPhi_8_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterPhi_8_read)
+
+ST_3: ClusterPhi_7_read_2 (51)  [1/1] 0.00ns
+._crit_edge.0:8  %ClusterPhi_7_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterPhi_7_read)
+
+ST_3: ClusterPhi_6_read_2 (52)  [1/1] 0.00ns
+._crit_edge.0:9  %ClusterPhi_6_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterPhi_6_read)
+
+ST_3: ClusterPhi_5_read_2 (53)  [1/1] 0.00ns
+._crit_edge.0:10  %ClusterPhi_5_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterPhi_5_read)
+
+ST_3: ClusterPhi_4_read31 (54)  [1/1] 0.00ns
+._crit_edge.0:11  %ClusterPhi_4_read31 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterPhi_4_read)
+
+ST_3: ClusterPhi_3_read_2 (55)  [1/1] 0.00ns
+._crit_edge.0:12  %ClusterPhi_3_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterPhi_3_read)
+
+ST_3: ClusterPhi_2_read_2 (56)  [1/1] 0.00ns
+._crit_edge.0:13  %ClusterPhi_2_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterPhi_2_read)
+
+ST_3: ClusterPhi_1_read_2 (57)  [1/1] 0.00ns
+._crit_edge.0:14  %ClusterPhi_1_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterPhi_1_read)
+
+ST_3: ClusterPhi_0_read_2 (58)  [1/1] 0.00ns
+._crit_edge.0:15  %ClusterPhi_0_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterPhi_0_read)
+
+ST_3: ClusterEta_15_read_1 (59)  [1/1] 0.00ns
+._crit_edge.0:16  %ClusterEta_15_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterEta_15_read)
+
+ST_3: ClusterEta_14_read_1 (60)  [1/1] 0.00ns
+._crit_edge.0:17  %ClusterEta_14_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterEta_14_read)
+
+ST_3: ClusterEta_13_read_1 (61)  [1/1] 0.00ns
+._crit_edge.0:18  %ClusterEta_13_read_1 = call i1 @_ssdm_op_Read.ap_auto.i1(i1 %ClusterEta_13_read)
+
+ST_3: ClusterEta_12_read_1 (62)  [1/1] 0.00ns
+._crit_edge.0:19  %ClusterEta_12_read_1 = call i1 @_ssdm_op_Read.ap_auto.i1(i1 %ClusterEta_12_read)
+
+ST_3: ClusterEta_11_read_1 (63)  [1/1] 0.00ns
+._crit_edge.0:20  %ClusterEta_11_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterEta_11_read)
+
+ST_3: ClusterEta_10_read_1 (64)  [1/1] 0.00ns
+._crit_edge.0:21  %ClusterEta_10_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterEta_10_read)
+
+ST_3: ClusterEta_9_read_2 (65)  [1/1] 0.00ns
+._crit_edge.0:22  %ClusterEta_9_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterEta_9_read)
+
+ST_3: ClusterEta_8_read_2 (66)  [1/1] 0.00ns
+._crit_edge.0:23  %ClusterEta_8_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterEta_8_read)
+
+ST_3: ClusterEta_7_read_2 (67)  [1/1] 0.00ns
+._crit_edge.0:24  %ClusterEta_7_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterEta_7_read)
+
+ST_3: ClusterEta_6_read_2 (68)  [1/1] 0.00ns
+._crit_edge.0:25  %ClusterEta_6_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterEta_6_read)
+
+ST_3: ClusterEta_5_read_2 (69)  [1/1] 0.00ns
+._crit_edge.0:26  %ClusterEta_5_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterEta_5_read)
+
+ST_3: ClusterEta_4_read_2 (70)  [1/1] 0.00ns
+._crit_edge.0:27  %ClusterEta_4_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterEta_4_read)
+
+ST_3: ClusterEta_3_read_2 (71)  [1/1] 0.00ns
+._crit_edge.0:28  %ClusterEta_3_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterEta_3_read)
+
+ST_3: ClusterEta_2_read_2 (72)  [1/1] 0.00ns
+._crit_edge.0:29  %ClusterEta_2_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterEta_2_read)
+
+ST_3: ClusterEta_1_read_2 (73)  [1/1] 0.00ns
+._crit_edge.0:30  %ClusterEta_1_read_2 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterEta_1_read)
+
+ST_3: ClusterEta_0_read11 (74)  [1/1] 0.00ns
+._crit_edge.0:31  %ClusterEta_0_read11 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %ClusterEta_0_read)
+
+ST_3: ClusterPhi_13_read_s (85)  [1/1] 0.00ns
+._crit_edge.0:42  %ClusterPhi_13_read_s = zext i1 %ClusterPhi_13_read_1 to i16
+
+ST_3: ClusterPhi_12_read_s (86)  [1/1] 0.00ns
+._crit_edge.0:43  %ClusterPhi_12_read_s = zext i1 %ClusterPhi_12_read_1 to i16
+
+ST_3: ClusterEta_13_read_s (87)  [1/1] 0.00ns
+._crit_edge.0:44  %ClusterEta_13_read_s = zext i1 %ClusterEta_13_read_1 to i16
+
+ST_3: ClusterEta_12_read_s (88)  [1/1] 0.00ns
+._crit_edge.0:45  %ClusterEta_12_read_s = zext i1 %ClusterEta_12_read_1 to i16
+
+ST_3: p_read40_read (92)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31
+._crit_edge.0:49  %p_read40_read = select i1 %tmp_s, i16 %ClusterEta_8_read_2, i16 %ClusterEta_0_read11
+
+ST_3: p_read32_read (93)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31
+._crit_edge.0:50  %p_read32_read = select i1 %tmp_s, i16 %ClusterEta_0_read11, i16 %ClusterEta_8_read_2
+
+ST_3: p_read72_read (94)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31
+._crit_edge.0:51  %p_read72_read = select i1 %tmp_s, i16 %ClusterPhi_8_read_2, i16 %ClusterPhi_0_read_2
+
+ST_3: p_read64_read (95)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31
+._crit_edge.0:52  %p_read64_read = select i1 %tmp_s, i16 %ClusterPhi_0_read_2, i16 %ClusterPhi_8_read_2
+
+ST_3: p_read41_read (99)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31
+._crit_edge.0:56  %p_read41_read = select i1 %tmp_342_1, i16 %ClusterEta_9_read_2, i16 %ClusterEta_1_read_2
+
+ST_3: p_read33_read (100)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31
+._crit_edge.0:57  %p_read33_read = select i1 %tmp_342_1, i16 %ClusterEta_1_read_2, i16 %ClusterEta_9_read_2
+
+ST_3: p_read73_read (101)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31
+._crit_edge.0:58  %p_read73_read = select i1 %tmp_342_1, i16 %ClusterPhi_9_read_2, i16 %ClusterPhi_1_read_2
+
+ST_3: p_read65_read (102)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31
+._crit_edge.0:59  %p_read65_read = select i1 %tmp_342_1, i16 %ClusterPhi_1_read_2, i16 %ClusterPhi_9_read_2
+
+ST_3: ClusterEta35_1_Clust (106)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:63  %ClusterEta35_1_Clust = select i1 %tmp_40, i16 %ClusterEta_4_read_2, i16 %p_read40_read
+
+ST_3: ClusterEta_1_Cluster (107)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:64  %ClusterEta_1_Cluster = select i1 %tmp_40, i16 %p_read40_read, i16 %ClusterEta_4_read_2
+
+ST_3: ClusterPhi66_1_Clust (108)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:65  %ClusterPhi66_1_Clust = select i1 %tmp_40, i16 %ClusterPhi_4_read31, i16 %p_read72_read
+
+ST_3: ClusterPhi_1_Cluster (109)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:66  %ClusterPhi_1_Cluster = select i1 %tmp_40, i16 %p_read72_read, i16 %ClusterPhi_4_read31
+
+ST_3: ClusterEta36_1_Clust (113)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:70  %ClusterEta36_1_Clust = select i1 %tmp_350_1, i16 %ClusterEta_5_read_2, i16 %p_read41_read
+
+ST_3: ClusterEta32_1_Clust (114)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:71  %ClusterEta32_1_Clust = select i1 %tmp_350_1, i16 %p_read41_read, i16 %ClusterEta_5_read_2
+
+ST_3: ClusterPhi67_1_Clust (115)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:72  %ClusterPhi67_1_Clust = select i1 %tmp_350_1, i16 %ClusterPhi_5_read_2, i16 %p_read73_read
+
+ST_3: ClusterPhi63_1_Clust (116)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:73  %ClusterPhi63_1_Clust = select i1 %tmp_350_1, i16 %p_read73_read, i16 %ClusterPhi_5_read_2
+
+ST_3: ClusterEta3743_1_Clu (120)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:77  %ClusterEta3743_1_Clu = select i1 %tmp_350_2, i16 %ClusterEta_6_read_2, i16 %ClusterEta_2_read_2
+
+ST_3: ClusterEta33_1_Clust (121)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:78  %ClusterEta33_1_Clust = select i1 %tmp_350_2, i16 %ClusterEta_2_read_2, i16 %ClusterEta_6_read_2
+
+ST_3: ClusterPhi68_1_Clust (122)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:79  %ClusterPhi68_1_Clust = select i1 %tmp_350_2, i16 %ClusterPhi_6_read_2, i16 %ClusterPhi_2_read_2
+
+ST_3: ClusterPhi64_1_Clust (123)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:80  %ClusterPhi64_1_Clust = select i1 %tmp_350_2, i16 %ClusterPhi_2_read_2, i16 %ClusterPhi_6_read_2
+
+ST_3: ClusterEta38_1_Clust (127)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:84  %ClusterEta38_1_Clust = select i1 %tmp_350_3, i16 %ClusterEta_7_read_2, i16 %ClusterEta_3_read_2
+
+ST_3: ClusterEta34_1_Clust (128)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:85  %ClusterEta34_1_Clust = select i1 %tmp_350_3, i16 %ClusterEta_3_read_2, i16 %ClusterEta_7_read_2
+
+ST_3: ClusterPhi69_1_Clust (129)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:86  %ClusterPhi69_1_Clust = select i1 %tmp_350_3, i16 %ClusterPhi_7_read_2, i16 %ClusterPhi_3_read_2
+
+ST_3: ClusterPhi65_1_Clust (130)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65
+._crit_edge.0:87  %ClusterPhi65_1_Clust = select i1 %tmp_350_3, i16 %ClusterPhi_3_read_2, i16 %ClusterPhi_7_read_2
+
+ST_3: ClusterDeposits2_2_C (132)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:133
+._crit_edge.0:89  %ClusterDeposits2_2_C = select i1 %tmp_41, i16 %ClusterDeposits6_1_C, i16 %ClusterDeposits4_1_C
+
+ST_3: ClusterDeposits_2_Cl (133)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:133
+._crit_edge.0:90  %ClusterDeposits_2_Cl = select i1 %tmp_41, i16 %ClusterDeposits4_1_C, i16 %ClusterDeposits6_1_C
+
+ST_3: ClusterEta33_2_Clust (134)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:133
+._crit_edge.0:91  %ClusterEta33_2_Clust = select i1 %tmp_41, i16 %ClusterEta3743_1_Clu, i16 %ClusterEta35_1_Clust
+
+ST_3: ClusterEta_2_Cluster (135)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:133
+._crit_edge.0:92  %ClusterEta_2_Cluster = select i1 %tmp_41, i16 %ClusterEta35_1_Clust, i16 %ClusterEta3743_1_Clu
+
+ST_3: ClusterPhi64_2_Clust (136)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:133
+._crit_edge.0:93  %ClusterPhi64_2_Clust = select i1 %tmp_41, i16 %ClusterPhi68_1_Clust, i16 %ClusterPhi66_1_Clust
+
+ST_3: ClusterPhi_2_Cluster (137)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:133
+._crit_edge.0:94  %ClusterPhi_2_Cluster = select i1 %tmp_41, i16 %ClusterPhi66_1_Clust, i16 %ClusterPhi68_1_Clust
+
+ST_3: ClusterDeposits3_2_C (139)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145
+._crit_edge.0:96  %ClusterDeposits3_2_C = select i1 %tmp_42, i16 %ClusterDeposits7_1_C, i16 %ClusterDeposits5_1_C
+
+ST_3: ClusterDeposits12_2_s (140)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145
+._crit_edge.0:97  %ClusterDeposits12_2_s = select i1 %tmp_42, i16 %ClusterDeposits5_1_C, i16 %ClusterDeposits7_1_C
+
+ST_3: ClusterEta34_2_Clust (141)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145
+._crit_edge.0:98  %ClusterEta34_2_Clust = select i1 %tmp_42, i16 %ClusterEta38_1_Clust, i16 %ClusterEta36_1_Clust
+
+ST_3: ClusterEta32_2_Clust (142)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145
+._crit_edge.0:99  %ClusterEta32_2_Clust = select i1 %tmp_42, i16 %ClusterEta36_1_Clust, i16 %ClusterEta38_1_Clust
+
+ST_3: ClusterPhi65_2_Clust (143)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145
+._crit_edge.0:100  %ClusterPhi65_2_Clust = select i1 %tmp_42, i16 %ClusterPhi69_1_Clust, i16 %ClusterPhi67_1_Clust
+
+ST_3: ClusterPhi63_2_Clust (144)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145
+._crit_edge.0:101  %ClusterPhi63_2_Clust = select i1 %tmp_42, i16 %ClusterPhi67_1_Clust, i16 %ClusterPhi69_1_Clust
+
+ST_3: ClusterDeposits6_2_C (146)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:133
+._crit_edge.0:103  %ClusterDeposits6_2_C = select i1 %tmp_367_1, i16 %ClusterDeposits2_1_C, i16 %ClusterDeposits_1_Cl
+
+ST_3: ClusterDeposits4_2_C (147)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:133
+._crit_edge.0:104  %ClusterDeposits4_2_C = select i1 %tmp_367_1, i16 %ClusterDeposits_1_Cl, i16 %ClusterDeposits2_1_C
+
+ST_3: ClusterEta3743_2_Clu (148)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:133
+._crit_edge.0:105  %ClusterEta3743_2_Clu = select i1 %tmp_367_1, i16 %ClusterEta33_1_Clust, i16 %ClusterEta_1_Cluster
+
+ST_3: ClusterEta35_2_Clust (149)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:133
+._crit_edge.0:106  %ClusterEta35_2_Clust = select i1 %tmp_367_1, i16 %ClusterEta_1_Cluster, i16 %ClusterEta33_1_Clust
+
+ST_3: ClusterPhi68_2_Clust (150)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:133
+._crit_edge.0:107  %ClusterPhi68_2_Clust = select i1 %tmp_367_1, i16 %ClusterPhi64_1_Clust, i16 %ClusterPhi_1_Cluster
+
+ST_3: ClusterPhi66_2_Clust (151)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:133
+._crit_edge.0:108  %ClusterPhi66_2_Clust = select i1 %tmp_367_1, i16 %ClusterPhi_1_Cluster, i16 %ClusterPhi64_1_Clust
+
+ST_3: ClusterDeposits7_2_C (153)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145
+._crit_edge.0:110  %ClusterDeposits7_2_C = select i1 %tmp_372_1, i16 %ClusterDeposits3_1_C, i16 %ClusterDeposits12_1_s
+
+ST_3: ClusterDeposits5_2_C (154)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145
+._crit_edge.0:111  %ClusterDeposits5_2_C = select i1 %tmp_372_1, i16 %ClusterDeposits12_1_s, i16 %ClusterDeposits3_1_C
+
+ST_3: ClusterEta38_2_Clust (155)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145
+._crit_edge.0:112  %ClusterEta38_2_Clust = select i1 %tmp_372_1, i16 %ClusterEta34_1_Clust, i16 %ClusterEta32_1_Clust
+
+ST_3: ClusterEta36_2_Clust (156)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145
+._crit_edge.0:113  %ClusterEta36_2_Clust = select i1 %tmp_372_1, i16 %ClusterEta32_1_Clust, i16 %ClusterEta34_1_Clust
+
+ST_3: ClusterPhi69_2_Clust (157)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145
+._crit_edge.0:114  %ClusterPhi69_2_Clust = select i1 %tmp_372_1, i16 %ClusterPhi65_1_Clust, i16 %ClusterPhi63_1_Clust
+
+ST_3: ClusterPhi67_2_Clust (158)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145
+._crit_edge.0:115  %ClusterPhi67_2_Clust = select i1 %tmp_372_1, i16 %ClusterPhi63_1_Clust, i16 %ClusterPhi65_1_Clust
+
+ST_3: tmp_43 (159)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:116  %tmp_43 = icmp ult i16 %ClusterDeposits2_2_C, %ClusterDeposits3_2_C
+
+ST_3: ClusterDeposits12_3_s (160)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:117  %ClusterDeposits12_3_s = select i1 %tmp_43, i16 %ClusterDeposits3_2_C, i16 %ClusterDeposits2_2_C
+
+ST_3: ClusterDeposits_3_Cl (161)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:118  %ClusterDeposits_3_Cl = select i1 %tmp_43, i16 %ClusterDeposits2_2_C, i16 %ClusterDeposits3_2_C
+
+ST_3: ClusterEta32_3_Clust (162)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:119  %ClusterEta32_3_Clust = select i1 %tmp_43, i16 %ClusterEta34_2_Clust, i16 %ClusterEta33_2_Clust
+
+ST_3: ClusterEta_3_Cluster (163)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:120  %ClusterEta_3_Cluster = select i1 %tmp_43, i16 %ClusterEta33_2_Clust, i16 %ClusterEta34_2_Clust
+
+ST_3: ClusterPhi63_3_Clust (164)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:121  %ClusterPhi63_3_Clust = select i1 %tmp_43, i16 %ClusterPhi65_2_Clust, i16 %ClusterPhi64_2_Clust
+
+ST_3: ClusterPhi_3_Cluster (165)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:122  %ClusterPhi_3_Cluster = select i1 %tmp_43, i16 %ClusterPhi64_2_Clust, i16 %ClusterPhi65_2_Clust
+
+ST_3: tmp_377_1 (166)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:123  %tmp_377_1 = icmp ult i16 %ClusterDeposits_2_Cl, %ClusterDeposits12_2_s
+
+ST_3: ClusterDeposits3_3_C (167)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:124  %ClusterDeposits3_3_C = select i1 %tmp_377_1, i16 %ClusterDeposits12_2_s, i16 %ClusterDeposits_2_Cl
+
+ST_3: ClusterDeposits2_3_C (168)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:125  %ClusterDeposits2_3_C = select i1 %tmp_377_1, i16 %ClusterDeposits_2_Cl, i16 %ClusterDeposits12_2_s
+
+ST_3: ClusterEta34_3_Clust (169)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:126  %ClusterEta34_3_Clust = select i1 %tmp_377_1, i16 %ClusterEta32_2_Clust, i16 %ClusterEta_2_Cluster
+
+ST_3: ClusterEta33_3_Clust (170)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:127  %ClusterEta33_3_Clust = select i1 %tmp_377_1, i16 %ClusterEta_2_Cluster, i16 %ClusterEta32_2_Clust
+
+ST_3: ClusterPhi65_3_Clust (171)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:128  %ClusterPhi65_3_Clust = select i1 %tmp_377_1, i16 %ClusterPhi63_2_Clust, i16 %ClusterPhi_2_Cluster
+
+ST_3: ClusterPhi64_3_Clust (172)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:129  %ClusterPhi64_3_Clust = select i1 %tmp_377_1, i16 %ClusterPhi_2_Cluster, i16 %ClusterPhi63_2_Clust
+
+ST_3: tmp_377_2 (173)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:130  %tmp_377_2 = icmp ult i16 %ClusterDeposits6_2_C, %ClusterDeposits7_2_C
+
+ST_3: ClusterDeposits5_3_C (174)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:131  %ClusterDeposits5_3_C = select i1 %tmp_377_2, i16 %ClusterDeposits7_2_C, i16 %ClusterDeposits6_2_C
+
+ST_3: ClusterDeposits4_3_C (175)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:132  %ClusterDeposits4_3_C = select i1 %tmp_377_2, i16 %ClusterDeposits6_2_C, i16 %ClusterDeposits7_2_C
+
+ST_3: ClusterEta36_3_Clust (176)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:133  %ClusterEta36_3_Clust = select i1 %tmp_377_2, i16 %ClusterEta38_2_Clust, i16 %ClusterEta3743_2_Clu
+
+ST_3: ClusterEta35_3_Clust (177)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:134  %ClusterEta35_3_Clust = select i1 %tmp_377_2, i16 %ClusterEta3743_2_Clu, i16 %ClusterEta38_2_Clust
+
+ST_3: ClusterPhi67_3_Clust (178)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:135  %ClusterPhi67_3_Clust = select i1 %tmp_377_2, i16 %ClusterPhi69_2_Clust, i16 %ClusterPhi68_2_Clust
+
+ST_3: ClusterPhi66_3_Clust (179)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:136  %ClusterPhi66_3_Clust = select i1 %tmp_377_2, i16 %ClusterPhi68_2_Clust, i16 %ClusterPhi69_2_Clust
+
+ST_3: tmp_377_3 (180)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:137  %tmp_377_3 = icmp ult i16 %ClusterDeposits4_2_C, %ClusterDeposits5_2_C
+
+ST_3: ClusterDeposits7_3_C (181)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:138  %ClusterDeposits7_3_C = select i1 %tmp_377_3, i16 %ClusterDeposits5_2_C, i16 %ClusterDeposits4_2_C
+
+ST_3: ClusterDeposits6_3_C (182)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:139  %ClusterDeposits6_3_C = select i1 %tmp_377_3, i16 %ClusterDeposits4_2_C, i16 %ClusterDeposits5_2_C
+
+ST_3: ClusterEta38_3_Clust (183)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:140  %ClusterEta38_3_Clust = select i1 %tmp_377_3, i16 %ClusterEta36_2_Clust, i16 %ClusterEta35_2_Clust
+
+ST_3: ClusterEta3743_3_Clu (184)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:141  %ClusterEta3743_3_Clu = select i1 %tmp_377_3, i16 %ClusterEta35_2_Clust, i16 %ClusterEta36_2_Clust
+
+ST_3: ClusterPhi69_3_Clust (185)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:142  %ClusterPhi69_3_Clust = select i1 %tmp_377_3, i16 %ClusterPhi67_2_Clust, i16 %ClusterPhi66_2_Clust
+
+ST_3: ClusterPhi68_3_Clust (186)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:143  %ClusterPhi68_3_Clust = select i1 %tmp_377_3, i16 %ClusterPhi66_2_Clust, i16 %ClusterPhi67_2_Clust
+
+ST_3: tmp_377_4 (187)  [1/1] 1.29ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:144  %tmp_377_4 = icmp ult i16 %p_read_read8, %p_read1_read9
+
+ST_3: ClusterDeposits9_3_C (188)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:145  %ClusterDeposits9_3_C = select i1 %tmp_377_4, i16 %p_read1_read9, i16 %p_read_read8
+
+ST_3: ClusterDeposits8_3_C (189)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:146  %ClusterDeposits8_3_C = select i1 %tmp_377_4, i16 %p_read_read8, i16 %p_read1_read9
+
+ST_3: ClusterEta40_3_Clust (190)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:147  %ClusterEta40_3_Clust = select i1 %tmp_377_4, i16 %p_read33_read, i16 %p_read32_read
+
+ST_3: ClusterEta39_3_Clust (191)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:148  %ClusterEta39_3_Clust = select i1 %tmp_377_4, i16 %p_read32_read, i16 %p_read33_read
+
+ST_3: ClusterPhi71_3_Clust (192)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:149  %ClusterPhi71_3_Clust = select i1 %tmp_377_4, i16 %p_read65_read, i16 %p_read64_read
+
+ST_3: ClusterPhi7078_3_Clu (193)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:150  %ClusterPhi7078_3_Clu = select i1 %tmp_377_4, i16 %p_read64_read, i16 %p_read65_read
+
+ST_3: newret (194)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:151  %newret = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } undef, i16 %ClusterDeposits12_3_s, 0
+
+ST_3: newret2 (195)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:152  %newret2 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret, i16 %ClusterDeposits_3_Cl, 1
+
+ST_3: newret4 (196)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:153  %newret4 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret2, i16 %ClusterDeposits3_3_C, 2
+
+ST_3: newret6 (197)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:154  %newret6 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret4, i16 %ClusterDeposits2_3_C, 3
+
+ST_3: newret8 (198)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:155  %newret8 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret6, i16 %ClusterDeposits5_3_C, 4
+
+ST_3: newret1 (199)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:156  %newret1 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret8, i16 %ClusterDeposits4_3_C, 5
+
+ST_3: newret3 (200)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:157  %newret3 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret1, i16 %ClusterDeposits7_3_C, 6
+
+ST_3: newret5 (201)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:158  %newret5 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret3, i16 %ClusterDeposits6_3_C, 7
+
+ST_3: newret7 (202)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:159  %newret7 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret5, i16 %ClusterDeposits9_3_C, 8
+
+ST_3: newret9 (203)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:160  %newret9 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret7, i16 %ClusterDeposits8_3_C, 9
+
+ST_3: newret10 (204)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:161  %newret10 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret9, i16 0, 10
+
+ST_3: newret11 (205)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:162  %newret11 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret10, i16 0, 11
+
+ST_3: newret12 (206)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:163  %newret12 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret11, i16 0, 12
+
+ST_3: newret13 (207)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:164  %newret13 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret12, i16 0, 13
+
+ST_3: newret14 (208)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:165  %newret14 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret13, i16 0, 14
+
+ST_3: newret15 (209)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:166  %newret15 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret14, i16 0, 15
+
+ST_3: newret16 (210)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:167  %newret16 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret15, i16 0, 16
+
+ST_3: newret17 (211)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:168  %newret17 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret16, i16 0, 17
+
+ST_3: newret18 (212)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:169  %newret18 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret17, i16 0, 18
+
+ST_3: newret19 (213)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:170  %newret19 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret18, i16 0, 19
+
+ST_3: newret20 (214)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:171  %newret20 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret19, i16 0, 20
+
+ST_3: newret21 (215)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:172  %newret21 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret20, i16 0, 21
+
+ST_3: newret22 (216)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:173  %newret22 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret21, i16 0, 22
+
+ST_3: newret23 (217)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:174  %newret23 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret22, i16 0, 23
+
+ST_3: newret24 (218)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:175  %newret24 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret23, i16 0, 24
+
+ST_3: newret25 (219)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:176  %newret25 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret24, i16 0, 25
+
+ST_3: newret26 (220)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:177  %newret26 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret25, i16 0, 26
+
+ST_3: newret27 (221)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:178  %newret27 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret26, i16 0, 27
+
+ST_3: newret28 (222)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:179  %newret28 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret27, i16 0, 28
+
+ST_3: newret29 (223)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:180  %newret29 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret28, i16 0, 29
+
+ST_3: newret30 (224)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:181  %newret30 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret29, i16 %ClusterEta32_3_Clust, 30
+
+ST_3: newret31 (225)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:182  %newret31 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret30, i16 %ClusterEta_3_Cluster, 31
+
+ST_3: newret32 (226)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:183  %newret32 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret31, i16 %ClusterEta34_3_Clust, 32
+
+ST_3: newret33 (227)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:184  %newret33 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret32, i16 %ClusterEta33_3_Clust, 33
+
+ST_3: newret34 (228)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:185  %newret34 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret33, i16 %ClusterEta36_3_Clust, 34
+
+ST_3: newret35 (229)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:186  %newret35 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret34, i16 %ClusterEta35_3_Clust, 35
+
+ST_3: newret36 (230)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:187  %newret36 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret35, i16 %ClusterEta38_3_Clust, 36
+
+ST_3: newret37 (231)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:188  %newret37 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret36, i16 %ClusterEta3743_3_Clu, 37
+
+ST_3: newret38 (232)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:189  %newret38 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret37, i16 %ClusterEta40_3_Clust, 38
+
+ST_3: newret39 (233)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:190  %newret39 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret38, i16 %ClusterEta39_3_Clust, 39
+
+ST_3: newret40 (234)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:191  %newret40 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret39, i16 %ClusterEta_10_read_1, 40
+
+ST_3: newret41 (235)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:192  %newret41 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret40, i16 %ClusterEta_11_read_1, 41
+
+ST_3: newret42 (236)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:193  %newret42 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret41, i16 %ClusterEta_12_read_s, 42
+
+ST_3: newret43 (237)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:194  %newret43 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret42, i16 %ClusterEta_13_read_s, 43
+
+ST_3: newret44 (238)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:195  %newret44 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret43, i16 %ClusterEta_14_read_1, 44
+
+ST_3: newret45 (239)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:196  %newret45 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret44, i16 %ClusterEta_15_read_1, 45
+
+ST_3: newret46 (240)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:197  %newret46 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret45, i16 0, 46
+
+ST_3: newret47 (241)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:198  %newret47 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret46, i16 0, 47
+
+ST_3: newret48 (242)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:199  %newret48 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret47, i16 0, 48
+
+ST_3: newret49 (243)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:200  %newret49 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret48, i16 0, 49
+
+ST_3: newret50 (244)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:201  %newret50 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret49, i16 0, 50
+
+ST_3: newret51 (245)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:202  %newret51 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret50, i16 0, 51
+
+ST_3: newret52 (246)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:203  %newret52 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret51, i16 0, 52
+
+ST_3: newret53 (247)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:204  %newret53 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret52, i16 0, 53
+
+ST_3: newret54 (248)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:205  %newret54 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret53, i16 0, 54
+
+ST_3: newret55 (249)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:206  %newret55 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret54, i16 0, 55
+
+ST_3: newret56 (250)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:207  %newret56 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret55, i16 0, 56
+
+ST_3: newret57 (251)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:208  %newret57 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret56, i16 0, 57
+
+ST_3: newret58 (252)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:209  %newret58 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret57, i16 0, 58
+
+ST_3: newret59 (253)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:210  %newret59 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret58, i16 0, 59
+
+ST_3: newret60 (254)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:211  %newret60 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret59, i16 %ClusterPhi63_3_Clust, 60
+
+ST_3: newret61 (255)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:212  %newret61 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret60, i16 %ClusterPhi_3_Cluster, 61
+
+ST_3: newret62 (256)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:213  %newret62 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret61, i16 %ClusterPhi65_3_Clust, 62
+
+ST_3: newret63 (257)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:214  %newret63 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret62, i16 %ClusterPhi64_3_Clust, 63
+
+ST_3: newret64 (258)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:215  %newret64 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret63, i16 %ClusterPhi67_3_Clust, 64
+
+ST_3: newret65 (259)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:216  %newret65 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret64, i16 %ClusterPhi66_3_Clust, 65
+
+ST_3: newret66 (260)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:217  %newret66 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret65, i16 %ClusterPhi69_3_Clust, 66
+
+ST_3: newret67 (261)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:218  %newret67 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret66, i16 %ClusterPhi68_3_Clust, 67
+
+ST_3: newret68 (262)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:219  %newret68 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret67, i16 %ClusterPhi71_3_Clust, 68
+
+ST_3: newret69 (263)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:220  %newret69 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret68, i16 %ClusterPhi7078_3_Clu, 69
+
+ST_3: newret70 (264)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:221  %newret70 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret69, i16 %ClusterPhi_10_read_1, 70
+
+ST_3: newret71 (265)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:222  %newret71 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret70, i16 %ClusterPhi_11_read_1, 71
+
+ST_3: newret72 (266)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:223  %newret72 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret71, i16 %ClusterPhi_12_read_s, 72
+
+ST_3: newret73 (267)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:224  %newret73 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret72, i16 %ClusterPhi_13_read_s, 73
+
+ST_3: newret74 (268)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:225  %newret74 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret73, i16 %ClusterPhi_14_read_1, 74
+
+ST_3: newret75 (269)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:226  %newret75 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret74, i16 %ClusterPhi_15_read_1, 75
+
+ST_3: newret76 (270)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:227  %newret76 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret75, i16 0, 76
+
+ST_3: newret77 (271)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:228  %newret77 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret76, i16 0, 77
+
+ST_3: newret78 (272)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:229  %newret78 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret77, i16 0, 78
+
+ST_3: newret79 (273)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:230  %newret79 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret78, i16 0, 79
+
+ST_3: newret80 (274)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:231  %newret80 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret79, i16 0, 80
+
+ST_3: newret81 (275)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:232  %newret81 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret80, i16 0, 81
+
+ST_3: newret82 (276)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:233  %newret82 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret81, i16 0, 82
+
+ST_3: newret83 (277)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:234  %newret83 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret82, i16 0, 83
+
+ST_3: newret84 (278)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:235  %newret84 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret83, i16 0, 84
+
+ST_3: newret85 (279)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:236  %newret85 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret84, i16 0, 85
+
+ST_3: newret86 (280)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:237  %newret86 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret85, i16 0, 86
+
+ST_3: newret87 (281)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:238  %newret87 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret86, i16 0, 87
+
+ST_3: newret88 (282)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:239  %newret88 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret87, i16 0, 88
+
+ST_3: newret89 (283)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:240  %newret89 = insertvalue { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret88, i16 0, 89
+
+ST_3: StgValue_245 (284)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165
+._crit_edge.0:241  ret { i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16 } %newret89
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.16ns, clock uncertainty: 0.52ns.
+
+ <State 1>: 2ns
+The critical path consists of the following:
+	wire read on port 'ClusterDeposits_9_r' [75]  (0 ns)
+	'icmp' operation ('tmp_342_1', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31) [96]  (1.29 ns)
+	'select' operation ('p_read9_read1', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31) [97]  (0.71 ns)
+
+ <State 2>: 3.29ns
+The critical path consists of the following:
+	wire read on port 'ClusterDeposits_7_r' [77]  (0 ns)
+	'icmp' operation ('tmp_350_3', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65) [124]  (1.29 ns)
+	'select' operation ('ClusterDeposits3_1_C', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65) [126]  (0.71 ns)
+	'icmp' operation ('tmp_372_1', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145) [152]  (1.29 ns)
+
+ <State 3>: 2.84ns
+The critical path consists of the following:
+	wire read on port 'ClusterPhi_9_read' [49]  (0 ns)
+	'select' operation ('p_read73_read', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:31) [101]  (0.71 ns)
+	'select' operation ('ClusterPhi63_1_Clust', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:65) [116]  (0.71 ns)
+	'select' operation ('ClusterPhi67_2_Clust', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:145) [158]  (0.71 ns)
+	'select' operation ('ClusterPhi69_3_Clust', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165) [185]  (0.71 ns)
+	'insertvalue' operation ('newret66', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165) [260]  (0 ns)
+	'insertvalue' operation ('newret67', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165) [261]  (0 ns)
+	'insertvalue' operation ('newret68', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165) [262]  (0 ns)
+	'insertvalue' operation ('newret69', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165) [263]  (0 ns)
+	'insertvalue' operation ('newret70', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165) [264]  (0 ns)
+	'insertvalue' operation ('newret71', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165) [265]  (0 ns)
+	'insertvalue' operation ('newret72', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:165) [266]  (0 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

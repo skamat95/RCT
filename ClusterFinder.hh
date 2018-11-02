@@ -5,10 +5,12 @@
 
 const uint16_t NCaloLayer1Cards = 18;
 
-const uint16_t NCaloLayer1Eta = 17;
+const uint16_t NCaloLayer1Eta = 6;
 const uint16_t NCaloLayer1Phi = 4;
 
 const uint16_t NCrystalsPerEtaPhi = 5;
+
+const uint16_t Clusters_total = 30;
 
 const uint16_t NCrystalsInPhi = (NCaloLayer1Cards * NCaloLayer1Phi * NCrystalsPerEtaPhi);
 const uint16_t NCrystalsInEta = (NCaloLayer1Eta * NCrystalsPerEtaPhi);
@@ -32,8 +34,8 @@ bool getClustersInCard(uint16_t crystals[NCaloLayer1Eta][NCaloLayer1Phi][NCrysta
 		       uint16_t largeClusterET[NCaloLayer1Eta][NCaloLayer1Phi],
 		       uint16_t smallClusterET[NCaloLayer1Eta][NCaloLayer1Phi],
 		       uint16_t SortedCluster_ET[30],
-                       uint16_t SortedPeak_Eta[30],
-                       uint16_t SortedPeak_Phi[30]);
+               uint16_t SortedPeak_Eta[30],
+               uint16_t SortedPeak_Phi[30]);
 
 uint16_t biggerLR(uint16_t clusterETL, uint16_t clusterETR);
 

@@ -1,0 +1,524 @@
+
+
+================================================================
+== Vivado HLS Report for 'getClustersInTower'
+================================================================
+* Date:           Wed Oct 31 22:16:19 2018
+
+* Version:        2016.4 (Build 1756540 on Mon Jan 23 19:31:01 MST 2017)
+* Project:        RCT_2016_project
+* Solution:       solution1
+* Product family: virtex7
+* Target device:  xc7vx690tffg1927-2
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   4.16|      3.62|        0.52|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    9|    9|    6|    6| function |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 0
+IsPipeline: 1
+IsRtlPipelined: 1
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 6, depth = 10
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 10
+* Pipeline: 1
+  Pipeline-0: II = 6, D = 10, States = { 1 2 3 4 5 6 7 8 9 10 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+* FSM state operations: 
+
+ <State 1>: 1.39ns
+ST_1: crystals_4_4_read_1 (26)  [1/1] 0.00ns
+.preheader_ifconv:0  %crystals_4_4_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_4_4_read)
+
+ST_1: crystals_4_1_read_1 (29)  [1/1] 0.00ns
+.preheader_ifconv:3  %crystals_4_1_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_4_1_read)
+
+ST_1: crystals_4_0_read_1 (30)  [1/1] 0.00ns
+.preheader_ifconv:4  %crystals_4_0_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_4_0_read)
+
+ST_1: crystals_1_4_read_1 (41)  [1/1] 0.00ns
+.preheader_ifconv:15  %crystals_1_4_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_1_4_read)
+
+ST_1: crystals_1_1_read_1 (44)  [1/1] 0.00ns
+.preheader_ifconv:18  %crystals_1_1_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_1_1_read)
+
+ST_1: crystals_1_0_read_1 (45)  [1/1] 0.00ns
+.preheader_ifconv:19  %crystals_1_0_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_1_0_read)
+
+ST_1: tmp5 (53)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:27  %tmp5 = add i16 %crystals_4_0_read_1, %crystals_1_0_read_1
+
+ST_1: tmp8 (57)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:31  %tmp8 = add i16 %crystals_4_1_read_1, %crystals_1_1_read_1
+
+ST_1: tmp17 (69)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:43  %tmp17 = add i16 %crystals_4_4_read_1, %crystals_1_4_read_1
+
+ST_1: tmp23 (77)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:51  %tmp23 = add i16 %crystals_1_4_read_1, %crystals_1_1_read_1
+
+ST_1: tmp32 (89)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:63  %tmp32 = add i16 %crystals_4_4_read_1, %crystals_4_1_read_1
+
+
+ <State 2>: 2.65ns
+ST_2: crystals_4_3_read_1 (27)  [1/1] 0.00ns
+.preheader_ifconv:1  %crystals_4_3_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_4_3_read)
+
+ST_2: crystals_4_2_read_1 (28)  [1/1] 0.00ns
+.preheader_ifconv:2  %crystals_4_2_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_4_2_read)
+
+ST_2: crystals_3_4_read_1 (31)  [1/1] 0.00ns
+.preheader_ifconv:5  %crystals_3_4_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_3_4_read)
+
+ST_2: crystals_3_1_read_1 (34)  [1/1] 0.00ns
+.preheader_ifconv:8  %crystals_3_1_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_3_1_read)
+
+ST_2: crystals_3_0_read_1 (35)  [1/1] 0.00ns
+.preheader_ifconv:9  %crystals_3_0_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_3_0_read)
+
+ST_2: crystals_2_4_read_1 (36)  [1/1] 0.00ns
+.preheader_ifconv:10  %crystals_2_4_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_2_4_read)
+
+ST_2: crystals_2_1_read_1 (39)  [1/1] 0.00ns
+.preheader_ifconv:13  %crystals_2_1_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_2_1_read)
+
+ST_2: crystals_2_0_read_1 (40)  [1/1] 0.00ns
+.preheader_ifconv:14  %crystals_2_0_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_2_0_read)
+
+ST_2: crystals_1_3_read_1 (42)  [1/1] 0.00ns
+.preheader_ifconv:16  %crystals_1_3_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_1_3_read)
+
+ST_2: crystals_1_2_read_1 (43)  [1/1] 0.00ns
+.preheader_ifconv:17  %crystals_1_2_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_1_2_read)
+
+ST_2: crystals_0_4_read_1 (46)  [1/1] 0.00ns
+.preheader_ifconv:20  %crystals_0_4_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_0_4_read)
+
+ST_2: crystals_0_1_read_1 (49)  [1/1] 0.00ns
+.preheader_ifconv:23  %crystals_0_1_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_0_1_read)
+
+ST_2: crystals_0_0_read_1 (50)  [1/1] 0.00ns
+.preheader_ifconv:24  %crystals_0_0_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_0_0_read)
+
+ST_2: tmp (52)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:26  %tmp = add i16 %crystals_3_0_read_1, %crystals_2_0_read_1
+
+ST_2: tmp6 (54)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:28  %tmp6 = add i16 %crystals_0_0_read_1, %tmp5
+
+ST_2: phiStripSum_0 (55)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:29  %phiStripSum_0 = add i16 %tmp, %tmp6
+
+ST_2: tmp7 (56)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:30  %tmp7 = add i16 %crystals_3_1_read_1, %crystals_2_1_read_1
+
+ST_2: tmp9 (58)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:32  %tmp9 = add i16 %crystals_0_1_read_1, %tmp8
+
+ST_2: phiStripSum_1 (59)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:33  %phiStripSum_1 = add i16 %tmp7, %tmp9
+
+ST_2: tmp11 (61)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:35  %tmp11 = add i16 %crystals_4_2_read_1, %crystals_1_2_read_1
+
+ST_2: tmp14 (65)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:39  %tmp14 = add i16 %crystals_4_3_read_1, %crystals_1_3_read_1
+
+ST_2: tmp16 (68)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:42  %tmp16 = add i16 %crystals_3_4_read_1, %crystals_2_4_read_1
+
+ST_2: tmp18 (70)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:44  %tmp18 = add i16 %crystals_0_4_read_1, %tmp17
+
+ST_2: phiStripSum_4 (71)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:45  %phiStripSum_4 = add i16 %tmp16, %tmp18
+
+ST_2: tmp20 (73)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:47  %tmp20 = add i16 %crystals_0_4_read_1, %crystals_0_1_read_1
+
+ST_2: tmp22 (76)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:50  %tmp22 = add i16 %crystals_1_3_read_1, %crystals_1_2_read_1
+
+ST_2: tmp24 (78)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:52  %tmp24 = add i16 %crystals_1_0_read_1, %tmp23
+
+ST_2: etaStripSum_1 (79)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:53  %etaStripSum_1 = add i16 %tmp22, %tmp24
+
+ST_2: tmp26 (81)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:55  %tmp26 = add i16 %crystals_2_4_read_1, %crystals_2_1_read_1
+
+ST_2: tmp29 (85)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:59  %tmp29 = add i16 %crystals_3_4_read_1, %crystals_3_1_read_1
+
+ST_2: tmp31 (88)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:62  %tmp31 = add i16 %crystals_4_3_read_1, %crystals_4_2_read_1
+
+ST_2: tmp33 (90)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:64  %tmp33 = add i16 %crystals_4_0_read_1, %tmp32
+
+ST_2: etaStripSum_4 (91)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:65  %etaStripSum_4 = add i16 %tmp31, %tmp33
+
+
+ <State 3>: 2.65ns
+ST_3: crystals_3_3_read_1 (32)  [1/1] 0.00ns
+.preheader_ifconv:6  %crystals_3_3_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_3_3_read)
+
+ST_3: crystals_3_2_read_1 (33)  [1/1] 0.00ns
+.preheader_ifconv:7  %crystals_3_2_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_3_2_read)
+
+ST_3: crystals_2_3_read_1 (37)  [1/1] 0.00ns
+.preheader_ifconv:11  %crystals_2_3_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_2_3_read)
+
+ST_3: crystals_2_2_read_1 (38)  [1/1] 0.00ns
+.preheader_ifconv:12  %crystals_2_2_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_2_2_read)
+
+ST_3: crystals_0_3_read_1 (47)  [1/1] 0.00ns
+.preheader_ifconv:21  %crystals_0_3_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_0_3_read)
+
+ST_3: crystals_0_2_read_1 (48)  [1/1] 0.00ns
+.preheader_ifconv:22  %crystals_0_2_read_1 = call i16 @_ssdm_op_Read.ap_auto.i16(i16 %crystals_0_2_read)
+
+ST_3: tmp10 (60)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:34  %tmp10 = add i16 %crystals_3_2_read_1, %crystals_2_2_read_1
+
+ST_3: tmp12 (62)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:36  %tmp12 = add i16 %crystals_0_2_read_1, %tmp11
+
+ST_3: phiStripSum_2 (63)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:37  %phiStripSum_2 = add i16 %tmp10, %tmp12
+
+ST_3: tmp13 (64)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:38  %tmp13 = add i16 %crystals_3_3_read_1, %crystals_2_3_read_1
+
+ST_3: tmp15 (66)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:40  %tmp15 = add i16 %crystals_0_3_read_1, %tmp14
+
+ST_3: phiStripSum_3 (67)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456
+.preheader_ifconv:41  %phiStripSum_3 = add i16 %tmp13, %tmp15
+
+ST_3: tmp19 (72)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:46  %tmp19 = add i16 %crystals_0_3_read_1, %crystals_0_2_read_1
+
+ST_3: tmp21 (74)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:48  %tmp21 = add i16 %crystals_0_0_read_1, %tmp20
+
+ST_3: etaStripSum_0 (75)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:49  %etaStripSum_0 = add i16 %tmp19, %tmp21
+
+ST_3: tmp25 (80)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:54  %tmp25 = add i16 %crystals_2_3_read_1, %crystals_2_2_read_1
+
+ST_3: tmp27 (82)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:56  %tmp27 = add i16 %crystals_2_0_read_1, %tmp26
+
+ST_3: etaStripSum_2 (83)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:57  %etaStripSum_2 = add i16 %tmp25, %tmp27
+
+ST_3: tmp28 (84)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:58  %tmp28 = add i16 %crystals_3_3_read_1, %crystals_3_2_read_1
+
+ST_3: tmp30 (86)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:60  %tmp30 = add i16 %crystals_3_0_read_1, %tmp29
+
+ST_3: etaStripSum_3 (87)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:61  %etaStripSum_3 = add i16 %tmp28, %tmp30
+
+ST_3: tmp35 (93)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1473
+.preheader_ifconv:67  %tmp35 = add i16 %phiStripSum_4, %phiStripSum_0
+
+
+ <State 4>: 2.65ns
+ST_4: tmp34 (92)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1473
+.preheader_ifconv:66  %tmp34 = add i16 %phiStripSum_3, %phiStripSum_2
+
+ST_4: tmp36 (94)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1473
+.preheader_ifconv:68  %tmp36 = add i16 %phiStripSum_1, %tmp35
+
+ST_4: tmp_42_4 (95)  [1/1] 1.26ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1473
+.preheader_ifconv:69  %tmp_42_4 = add i16 %tmp34, %tmp36
+
+
+ <State 5>: 3.41ns
+ST_5: tmp_s (96)  [4/4] 3.41ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475
+.preheader_ifconv:70  %tmp_s = call fastcc i3 @getPeakBinOf5(i16 %etaStripSum_0, i16 %etaStripSum_1, i16 %etaStripSum_2, i16 %etaStripSum_3, i16 %etaStripSum_4, i16 %tmp_42_4)
+
+ST_5: peakPhi_write_assign (97)  [4/4] 3.41ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1476
+.preheader_ifconv:71  %peakPhi_write_assign = call fastcc i3 @getPeakBinOf5(i16 %phiStripSum_0, i16 %phiStripSum_1, i16 %phiStripSum_2, i16 %phiStripSum_3, i16 %phiStripSum_4, i16 %tmp_42_4)
+
+
+ <State 6>: 3.62ns
+ST_6: tmp_s (96)  [3/4] 3.62ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475
+.preheader_ifconv:70  %tmp_s = call fastcc i3 @getPeakBinOf5(i16 %etaStripSum_0, i16 %etaStripSum_1, i16 %etaStripSum_2, i16 %etaStripSum_3, i16 %etaStripSum_4, i16 %tmp_42_4)
+
+ST_6: peakPhi_write_assign (97)  [3/4] 3.62ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1476
+.preheader_ifconv:71  %peakPhi_write_assign = call fastcc i3 @getPeakBinOf5(i16 %phiStripSum_0, i16 %phiStripSum_1, i16 %phiStripSum_2, i16 %phiStripSum_3, i16 %phiStripSum_4, i16 %tmp_42_4)
+
+
+ <State 7>: 3.62ns
+ST_7: tmp_s (96)  [2/4] 3.62ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475
+.preheader_ifconv:70  %tmp_s = call fastcc i3 @getPeakBinOf5(i16 %etaStripSum_0, i16 %etaStripSum_1, i16 %etaStripSum_2, i16 %etaStripSum_3, i16 %etaStripSum_4, i16 %tmp_42_4)
+
+ST_7: peakPhi_write_assign (97)  [2/4] 3.62ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1476
+.preheader_ifconv:71  %peakPhi_write_assign = call fastcc i3 @getPeakBinOf5(i16 %phiStripSum_0, i16 %phiStripSum_1, i16 %phiStripSum_2, i16 %phiStripSum_3, i16 %phiStripSum_4, i16 %tmp_42_4)
+
+
+ <State 8>: 3.16ns
+ST_8: tmp_s (96)  [1/4] 2.73ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475
+.preheader_ifconv:70  %tmp_s = call fastcc i3 @getPeakBinOf5(i16 %etaStripSum_0, i16 %etaStripSum_1, i16 %etaStripSum_2, i16 %etaStripSum_3, i16 %etaStripSum_4, i16 %tmp_42_4)
+
+ST_8: peakPhi_write_assign (97)  [1/4] 2.73ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1476
+.preheader_ifconv:71  %peakPhi_write_assign = call fastcc i3 @getPeakBinOf5(i16 %phiStripSum_0, i16 %phiStripSum_1, i16 %phiStripSum_2, i16 %phiStripSum_3, i16 %phiStripSum_4, i16 %tmp_42_4)
+
+ST_8: tmp_46_cast_cast (98)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1481
+.preheader_ifconv:72  %tmp_46_cast_cast = zext i3 %tmp_s to i4
+
+ST_8: eta_3 (99)  [1/1] 0.43ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1481
+.preheader_ifconv:73  %eta_3 = add i4 %tmp_46_cast_cast, -1
+
+
+ <State 9>: 3.60ns
+ST_9: tmp_17 (100)  [1/1] 0.94ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1482
+.preheader_ifconv:74  %tmp_17 = icmp ne i3 %tmp_s, 0
+
+ST_9: tmp_18 (101)  [1/1] 1.11ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1482
+.preheader_ifconv:75  %tmp_18 = icmp slt i4 %eta_3, 5
+
+ST_9: or_cond_4 (102)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1482 (grouped into LUT with out node clusterET_1)
+.preheader_ifconv:76  %or_cond_4 = and i1 %tmp_17, %tmp_18
+
+ST_9: eta_3_0_t (103)  [1/1] 0.43ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475
+.preheader_ifconv:77  %eta_3_0_t = add i3 %tmp_s, -1
+
+ST_9: tmp_19 (104)  [1/1] 1.07ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:78  %tmp_19 = call i16 @_ssdm_op_Mux.ap_auto.5i16.i3(i16 %etaStripSum_0, i16 %etaStripSum_1, i16 %etaStripSum_2, i16 %etaStripSum_3, i16 %etaStripSum_4, i3 %eta_3_0_t)
+
+ST_9: clusterET_1 (105)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1482 (out node of the LUT)
+.preheader_ifconv:79  %clusterET_1 = select i1 %or_cond_4, i16 %tmp_19, i16 0
+
+ST_9: tmp_48_1 (106)  [1/1] 0.94ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1482
+.preheader_ifconv:80  %tmp_48_1 = icmp ult i3 %tmp_s, -3
+
+ST_9: tmp_20 (107)  [1/1] 1.07ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466
+.preheader_ifconv:81  %tmp_20 = call i16 @_ssdm_op_Mux.ap_auto.5i16.i3(i16 %etaStripSum_0, i16 %etaStripSum_1, i16 %etaStripSum_2, i16 %etaStripSum_3, i16 %etaStripSum_4, i3 %tmp_s)
+
+ST_9: tmp_50_1 (108)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1483
+.preheader_ifconv:82  %tmp_50_1 = add i16 %tmp_20, %clusterET_1
+
+ST_9: eta_3_2 (110)  [1/1] 0.43ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1481
+.preheader_ifconv:84  %eta_3_2 = add i4 %tmp_46_cast_cast, 1
+
+ST_9: tmp_48_2 (111)  [1/1] 1.11ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1482
+.preheader_ifconv:85  %tmp_48_2 = icmp ult i4 %eta_3_2, 5
+
+ST_9: sel_tmp (112)  [1/1] 0.94ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1483
+.preheader_ifconv:86  %sel_tmp = icmp eq i3 %tmp_s, 1
+
+ST_9: sel_tmp2 (113)  [1/1] 0.94ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1483
+.preheader_ifconv:87  %sel_tmp2 = icmp eq i3 %tmp_s, 2
+
+ST_9: sel_tmp4 (114)  [1/1] 0.94ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1483
+.preheader_ifconv:88  %sel_tmp4 = icmp eq i3 %tmp_s, 0
+
+ST_9: newSel (115)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1483 (grouped into LUT with out node newSel2)
+.preheader_ifconv:89  %newSel = select i1 %sel_tmp4, i16 %etaStripSum_1, i16 %etaStripSum_3
+
+ST_9: or_cond (116)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1483 (grouped into LUT with out node newSel2)
+.preheader_ifconv:90  %or_cond = or i1 %sel_tmp4, %sel_tmp2
+
+ST_9: newSel1 (117)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1483 (out node of the LUT)
+.preheader_ifconv:91  %newSel1 = select i1 %sel_tmp, i16 %etaStripSum_2, i16 %etaStripSum_4
+
+ST_9: newSel2 (118)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1483 (out node of the LUT)
+.preheader_ifconv:92  %newSel2 = select i1 %or_cond, i16 %newSel, i16 %newSel1
+
+
+ <State 10>: 2.81ns
+ST_10: StgValue_108 (51)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1447
+.preheader_ifconv:25  call void (...)* @_ssdm_op_SpecPipeline(i32 6, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_10: clusterET_1_1 (109)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1482
+.preheader_ifconv:83  %clusterET_1_1 = select i1 %tmp_48_1, i16 %tmp_50_1, i16 %clusterET_1
+
+ST_10: tmp_50_2 (119)  [1/1] 1.39ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1483 (out node of the LUT)
+.preheader_ifconv:93  %tmp_50_2 = add i16 %newSel2, %clusterET_1_1
+
+ST_10: clusterET_1_2 (120)  [1/1] 0.71ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1482
+.preheader_ifconv:94  %clusterET_1_2 = select i1 %tmp_48_2, i16 %tmp_50_2, i16 %clusterET_1_1
+
+ST_10: mrv_trunc_ext (121)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475
+.preheader_ifconv:95  %mrv_trunc_ext = zext i3 %tmp_s to i16
+
+ST_10: mrv (122)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475
+.preheader_ifconv:96  %mrv = insertvalue { i16, i16, i16, i16 } undef, i16 %mrv_trunc_ext, 0
+
+ST_10: mrv_1_trunc_ext (123)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1476
+.preheader_ifconv:97  %mrv_1_trunc_ext = zext i3 %peakPhi_write_assign to i16
+
+ST_10: mrv_1 (124)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475
+.preheader_ifconv:98  %mrv_1 = insertvalue { i16, i16, i16, i16 } %mrv, i16 %mrv_1_trunc_ext, 1
+
+ST_10: mrv_2 (125)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475
+.preheader_ifconv:99  %mrv_2 = insertvalue { i16, i16, i16, i16 } %mrv_1, i16 %tmp_42_4, 2
+
+ST_10: mrv_3 (126)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475
+.preheader_ifconv:100  %mrv_3 = insertvalue { i16, i16, i16, i16 } %mrv_2, i16 %clusterET_1_2, 3
+
+ST_10: StgValue_118 (127)  [1/1] 0.00ns  loc: /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475
+.preheader_ifconv:101  ret { i16, i16, i16, i16 } %mrv_3
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 4.16ns, clock uncertainty: 0.52ns.
+
+ <State 1>: 1.39ns
+The critical path consists of the following:
+	wire read on port 'crystals_4_4_read' [26]  (0 ns)
+	'add' operation ('tmp32', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466) [89]  (1.39 ns)
+
+ <State 2>: 2.65ns
+The critical path consists of the following:
+	wire read on port 'crystals_4_3_read' [27]  (0 ns)
+	'add' operation ('tmp31', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466) [88]  (1.39 ns)
+	'add' operation ('etaStripSum[4]', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466) [91]  (1.26 ns)
+
+ <State 3>: 2.65ns
+The critical path consists of the following:
+	wire read on port 'crystals_3_3_read' [32]  (0 ns)
+	'add' operation ('tmp13', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456) [64]  (1.39 ns)
+	'add' operation ('phiStripSum[3]', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1456) [67]  (1.26 ns)
+
+ <State 4>: 2.65ns
+The critical path consists of the following:
+	'add' operation ('tmp34', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1473) [92]  (1.39 ns)
+	'add' operation ('tmp_42_4', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1473) [95]  (1.26 ns)
+
+ <State 5>: 3.41ns
+The critical path consists of the following:
+	'call' operation ('tmp_s', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475) to 'getPeakBinOf5' [96]  (3.41 ns)
+
+ <State 6>: 3.62ns
+The critical path consists of the following:
+	'call' operation ('tmp_s', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475) to 'getPeakBinOf5' [96]  (3.62 ns)
+
+ <State 7>: 3.62ns
+The critical path consists of the following:
+	'call' operation ('tmp_s', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475) to 'getPeakBinOf5' [96]  (3.62 ns)
+
+ <State 8>: 3.16ns
+The critical path consists of the following:
+	'call' operation ('tmp_s', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475) to 'getPeakBinOf5' [96]  (2.73 ns)
+	'add' operation ('eta_3', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1481) [99]  (0.43 ns)
+
+ <State 9>: 3.6ns
+The critical path consists of the following:
+	'add' operation ('eta_3_0_t', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1475) [103]  (0.43 ns)
+	'mux' operation ('tmp_19', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1466) [104]  (1.07 ns)
+	'select' operation ('clusterET_1', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1482) [105]  (0.71 ns)
+	'add' operation ('tmp_50_1', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1483) [108]  (1.39 ns)
+
+ <State 10>: 2.81ns
+The critical path consists of the following:
+	'select' operation ('clusterET_1_1', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1482) [109]  (0.71 ns)
+	'add' operation ('tmp_50_2', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1483) [119]  (1.39 ns)
+	'select' operation ('clusterET_1_2', /data/skamat/HLS/RCT_2016/vivado_hls/src/ClusterFinder.cc:1482) [120]  (0.71 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

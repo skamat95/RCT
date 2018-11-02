@@ -1,0 +1,7 @@
+make[1]: Entering directory `/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/wrapc'
+   Build using "/data/tools/Vivado_HLS/2016.4/lnx64/tools/gcc/bin/g++"
+   Compiling apatb_getClustersInCard.cpp
+   Compiling ClusterFinder.cc_pre.cc.tb.cc
+   Compiling testClusterFinder.cc_pre.cc.tb.cc
+   Generating cosim.tv.exe
+make[1]: Leaving directory `/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/wrapc'

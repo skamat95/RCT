@@ -1,0 +1,115 @@
+INFO: [SIM 2] *************** CSIM start ***************
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+make[1]: Entering directory `/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/csim/build'
+   Compiling ../../../../../../vivado_hls/src/testClusterFinder.cc in release mode
+   Compiling ../../../../../../vivado_hls/src/ClusterFinder.cc in release mode
+   Generating csim.exe
+make[1]: Leaving directory `/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/csim/build'
+Generated clusters: 
+tEta	tPhi	cEta	cPhi	clusterET
+5	3	3	0	11
+4	2	4	3	22
+3	1	3	4	33
+2	0	0	3	44
+1	3	0	0	55
+0	2	2	0	66
+5	1	2	0	77
+4	0	0	2	88
+3	3	2	2	99
+3	3	3	3	111
+Total generated ET = 606
+Total deposited ET = 472
+tower eta: 0 tower phi: 0 peakEta1: 0 peakPhi1: 0 clusterET: 0
+tower eta: 1 tower phi: 0 peakEta1: 0 peakPhi1: 0 clusterET: 0
+tower eta: 2 tower phi: 0 peakEta1: 0 peakPhi1: 3 clusterET: 39
+tower eta: 0 tower phi: 1 peakEta1: 0 peakPhi1: 0 clusterET: 0
+tower eta: 1 tower phi: 1 peakEta1: 0 peakPhi1: 0 clusterET: 0
+tower eta: 2 tower phi: 1 peakEta1: 0 peakPhi1: 0 clusterET: 0
+tower eta: 0 tower phi: 2 peakEta1: 2 peakPhi1: 0 clusterET: 59
+tower eta: 1 tower phi: 2 peakEta1: 0 peakPhi1: 0 clusterET: 0
+tower eta: 2 tower phi: 2 peakEta1: 0 peakPhi1: 0 clusterET: 0
+tower eta: 0 tower phi: 3 peakEta1: 0 peakPhi1: 0 clusterET: 0
+tower eta: 1 tower phi: 3 peakEta1: 0 peakPhi1: 0 clusterET: 49
+tower eta: 2 tower phi: 3 peakEta1: 0 peakPhi1: 0 clusterET: 0
+tower eta: 0 tower phi: 0 peakEta1: 4 peakPhi1: 2 clusterET: 3
+tower eta: 1 tower phi: 0 peakEta1: 0 peakPhi1: 2 clusterET: 84
+tower eta: 2 tower phi: 0 peakEta1: 0 peakPhi1: 0 clusterET: 0
+tower eta: 0 tower phi: 1 peakEta1: 3 peakPhi1: 4 clusterET: 29
+tower eta: 1 tower phi: 1 peakEta1: 0 peakPhi1: 0 clusterET: 0
+tower eta: 2 tower phi: 1 peakEta1: 2 peakPhi1: 0 clusterET: 69
+tower eta: 0 tower phi: 2 peakEta1: 0 peakPhi1: 0 clusterET: 0
+tower eta: 1 tower phi: 2 peakEta1: 4 peakPhi1: 3 clusterET: 19
+tower eta: 2 tower phi: 2 peakEta1: 0 peakPhi1: 0 clusterET: 0
+tower eta: 0 tower phi: 3 peakEta1: 3 peakPhi1: 3 clusterET: 109
+tower eta: 1 tower phi: 3 peakEta1: 0 peakPhi1: 0 clusterET: 0
+tower eta: 2 tower phi: 3 peakEta1: 3 peakPhi1: 0 clusterET: 9
+i: 0 SortedPeak_Eta[i] 3 SortedPeak_Phi[i]3  SortedCluster_ET[i]109
+i: 1 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]2  SortedCluster_ET[i]84
+i: 2 SortedPeak_Eta[i] 2 SortedPeak_Phi[i]0  SortedCluster_ET[i]69
+i: 3 SortedPeak_Eta[i] 2 SortedPeak_Phi[i]0  SortedCluster_ET[i]59
+i: 4 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]49
+i: 5 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]3  SortedCluster_ET[i]39
+i: 6 SortedPeak_Eta[i] 3 SortedPeak_Phi[i]4  SortedCluster_ET[i]29
+i: 7 SortedPeak_Eta[i] 4 SortedPeak_Phi[i]3  SortedCluster_ET[i]19
+i: 8 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 9 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 10 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 11 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 12 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 13 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 14 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 15 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 16 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 17 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 18 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 19 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 20 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 21 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 22 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 23 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 24 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 25 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 26 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 27 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 28 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+i: 29 SortedPeak_Eta[i] 0 SortedPeak_Phi[i]0  SortedCluster_ET[i]0
+From the simulation: 
+tEta	tPhi	peakEta	peakPhi	largeClusterET	smallClusterET	
+0	0	4	2	3	3	
+0	1	3	4	29	29	
+0	3	3	3	112	109	
+1	0	0	2	84	84	
+1	2	4	3	19	19	
+2	1	2	0	69	69	
+2	3	3	0	9	9	
+3	0	27680	95	472	0	
+4	0	27488	80	27808	0	
+4	1	19132	0	19132	0	
+4	2	32764	0	32764	0	
+5	0	0	29	2352	38744	
+5	1	0	0	64	64	
+6	0	2	30008	3	11992	
+6	1	4	19132	29	1267	
+6	3	3	0	109	256	
+7	0	2	30024	84	3	
+7	2	3	32764	19	3	
+8	1	0	0	69	0	
+8	3	0	0	9	0	
+11	0	29	0	38744	5	
+11	1	0	0	64	0	
+12	0	30008	33016	11992	4	
+12	1	19132	1313	1267	0	
+12	2	32764	32732	32732	6	
+12	3	0	0	256	0	
+13	0	30024	34296	3	38496	
+13	2	32764	56	3	3	
+14	0	0	60848	3	3	
+14	2	0	32732	3	4	
+15	0	58400	41904	111	4	
+15	2	56	0	2	2	
+16	0	1	29648	16	2	
+16	2	32732	32764	32764	10	
+16	3	0	0	4591	0	
+Total card ET = 9182
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

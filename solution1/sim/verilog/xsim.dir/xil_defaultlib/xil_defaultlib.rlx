@@ -1,0 +1,17 @@
+0.6
+2016.4
+Jan 23 2017
+19:19:20
+/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/bitonic16.v,1541020609,systemVerilog,,,,bitonic16,/data/tools/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/bitonic32.v,1541020608,systemVerilog,,,,bitonic32,/data/tools/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/bitonic8.v,1541020610,systemVerilog,,,,bitonic8,/data/tools/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/bitonic_1_8.v,1541020604,systemVerilog,,,,bitonic_1_8,/data/tools/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getClustersInCard.autotb.v,1541020860,systemVerilog,,,,apatb_getClustersInCard_top,/data/tools/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getClustersInCard.v,1541020615,systemVerilog,,,,getClustersInCard,/data/tools/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getClustersInCardbkb.v,1541020624,systemVerilog,,,,getClustersInCardbkb,/data/tools/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getClustersInCardcud.v,1541020624,systemVerilog,,,,getClustersInCardcud,/data/tools/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getClustersInCarddEe.v,1541020624,systemVerilog,,,,getClustersInCarddEe,/data/tools/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getClustersInTower.v,1541020603,systemVerilog,,,,getClustersInTower,/data/tools/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getClustersin3x4Regi.v,1541020605,systemVerilog,,,,getClustersin3x4Regi,/data/tools/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/getPeakBinOf5.v,1541020603,systemVerilog,,,,getPeakBinOf5,/data/tools/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
+/data/skamat/HLS/RCT_2016/build/RCT_2016/RCT_2016_project/solution1/sim/verilog/mergeClusters.v,1541020610,systemVerilog,,,,mergeClusters,/data/tools/Vivado/2016.4/data/xsim/ip/xsim_ip.ini,ieee_proposed=./ieee_proposed,,,,,,
