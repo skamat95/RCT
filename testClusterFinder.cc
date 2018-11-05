@@ -1,21 +1,17 @@
 #include "ClusterFinder.hh"
-
-#include <stdlib.h>
-#include <stdint.h>
-#include <string.h>
 #include <stdio.h>
 #include <iostream>
 using namespace std;
 
 //For making the input map links and the input file
-bool writeLinkMapHT(uint16_t crystals[NCaloLayer1Eta][NCaloLayer1Phi][NCrystalsPerEtaPhi][NCrystalsPerEtaPhi],
+bool writeLinkMapRCT(uint16_t crystals[NCaloLayer1Eta][NCaloLayer1Phi][NCrystalsPerEtaPhi][NCrystalsPerEtaPhi],
         uint16_t peakEta[NCaloLayer1Eta][NCaloLayer1Phi],
         uint16_t peakPhi[NCaloLayer1Eta][NCaloLayer1Phi],
         uint16_t towerET[NCaloLayer1Eta][NCaloLayer1Phi],
         uint16_t clusterET[NCaloLayer1Eta][NCaloLayer1Phi],
-		uint16_t SortedCluster_ET[30],
-		uint16_t SortedPeak_Eta[30],
-		uint16_t SortedPeak_Phi[30]) {
+		uint16_t SortedCluster_ET[Total_clusters],
+		uint16_t SortedPeak_Eta[Total_clusters],
+		uint16_t SortedPeak_Phi[Total_clusters]) {
   // This code is to write suitable mapping of inputs to signals in the CTP7_HLS project from Ales
   // Block 1 of User Code
   int iEta, iPhi, icrys1, icrys2, count, link, loBit, hiBit;
@@ -59,7 +55,7 @@ bool writeLinkMapHT(uint16_t crystals[NCaloLayer1Eta][NCaloLayer1Phi][NCrystalsP
 
         	  }
         }
-  for(count = 0; count < 30; count++) {
+  for(count = 0; count < Total_clusters; count++) {
           		fprintf(f1, "SortedCluster_ET_%d : OUT STD_LOGIC_VECTOR (15 downto 0);\n", count);
           		fprintf(f1, "SortedPeak_Eta_%d : OUT STD_LOGIC_VECTOR (15 downto 0);\n", count);
           		fprintf(f1, "SortedPeak_Phi_%d : OUT STD_LOGIC_VECTOR (15 downto 0);\n", count);
@@ -105,7 +101,7 @@ bool writeLinkMapHT(uint16_t crystals[NCaloLayer1Eta][NCaloLayer1Phi][NCrystalsP
 
           	  }
           }
-    for(count = 0; count < 30; count++) {
+    for(count = 0; count < Total_clusters; count++) {
             		fprintf(f1, "signal SortedCluster_ET_%d : STD_LOGIC_VECTOR (15 downto 0);\n", count);
             		fprintf(f1, "signal SortedPeak_Eta_%d : STD_LOGIC_VECTOR (15 downto 0);\n", count);
             		fprintf(f1, "signal SortedPeak_Phi_%d : STD_LOGIC_VECTOR (15 downto 0);\n", count);
@@ -222,100 +218,43 @@ bool writeLinkMapHT(uint16_t crystals[NCaloLayer1Eta][NCaloLayer1Phi][NCrystalsP
               		temp2++;
               	  }
               }
-        for(count = 0; count < 30; count++) {
 
-        	link = (temp2 / 12);
+
+        for(count = 0; count < Total_clusters; count++) {
+
+			link = (temp2 / 12);
 			loBit = (temp2 % 12) * 16;
 			hiBit = loBit + 15;
 			fprintf(f1, "s_OUTPUT_LINK_ARR( %d )(%d downto %d) <= SortedCluster_ET_%d;\n", link, hiBit, loBit, count);
 			temp2++;
-        }
-        for(count = 0; count < 30; count++) {
+		}
+		for(count = 0; count < Total_clusters; count++) {
 
-              	link = (temp2 / 12);
-      			loBit = (temp2 % 12) * 16;
-      			hiBit = loBit + 15;
+				link = (temp2 / 12);
+				loBit = (temp2 % 12) * 16;
+				hiBit = loBit + 15;
 
-      			fprintf(f1, "s_OUTPUT_LINK_ARR( %d )(%d downto %d) <= SortedPeak_Eta_%d;\n", link, hiBit, loBit, count);
+				fprintf(f1, "s_OUTPUT_LINK_ARR( %d )(%d downto %d) <= SortedPeak_Eta_%d;\n", link, hiBit, loBit, count);
 
-      			temp2++;
-              }
-        for(count = 0; count < 30; count++) {
+				temp2++;
+			  }
+		for(count = 0; count < Total_clusters; count++) {
 
-              	link = (temp2 / 12);
-      			loBit = (temp2 % 12) * 16;
-      			hiBit = loBit + 15;
-      			fprintf(f1, "s_OUTPUT_LINK_ARR( %d )(%d downto %d) <= SortedPeak_Phi_%d;\n", link, hiBit, loBit, count);
-      			temp2++;
-              }
+				link = (temp2 / 12);
+				loBit = (temp2 % 12) * 16;
+				hiBit = loBit + 15;
+				fprintf(f1, "s_OUTPUT_LINK_ARR( %d )(%d downto %d) <= SortedPeak_Phi_%d;\n", link, hiBit, loBit, count);
+				temp2++;
+			  }
 
 
   return true;
 }
-/*
-bool writeInputFile(uint10_t rgnET[NCrts*NCrds*NRgns], uint10_t hfET[NCrts*NHFRgns], bool last = false) {
-  static bool first = true;
-  static int count = 0;
-  static FILE *f1;
-  int i,j;
-  int iRgn, iHFRgn;
-  uint10_t item0 = 0;
-  uint10_t item1 = 0;
-  if(first) {
-    first = false;
-    f1 = fopen("input_link_data.txt","w");
-    if( f1 == NULL){
-      fprintf(stderr, "\n Error opening input file");
-      return false;
-    }
-    // Write header
-    for (i=0; i < 945; i++)fprintf(f1,"=");
-    fprintf(f1,"\nInput ");
-    for (i=0; i < 67; i++) fprintf(f1,"       LINK_%02d",i);
-    fprintf(f1,"\n");
-    for (i=0; i < 945; i++) fprintf(f1,"=");
-  }
-  for(j = 0; j < 6 && count < 1024; j++, count++) {
-    fprintf(f1,"\n0x%05X", count);
-    for(i=0; i< 67; i++) {
-      item0 = 0;
-      item1 = 0;
-      if(i < 21) {
-	iRgn = i * 12 + j * 2;
-	if(iRgn < NCrts * NCrds * NRgns) {
-	  item0 = rgnET[iRgn];
-	  item1 = rgnET[iRgn + 1];
-	}
-      }
-      else if(i < 33) {
-	iHFRgn = i * 12 + j * 2;
-	if(iHFRgn < NCrts * NHFRgns) {
-	  item0 = hfET[iHFRgn];
-	  item1 = hfET[iHFRgn + 1];
-	}
-      }
-      fprintf(f1,"    0x%04X%04X", item1, item0);
-    }
-  }
-  if(last || count > 1017) {
-    for(; count < 1024; count++) {
-      fprintf(f1,"\n0x%05X", count);
-      for(i=0; i< 67; i++) {
-	fprintf(f1,"    0x00000000");
-      }
-    }
-  }
-  return true;
-}
-*/
 
-//Main function
 int main(int argc, char **argv) {
-
-
-  uint16_t crystals[NCaloLayer1Eta][NCaloLayer1Phi][5][5];
-  for(int tEta = 0; tEta < NCaloLayer1Eta; tEta++) {
-    for(int tPhi = 0; tPhi < NCaloLayer1Phi; tPhi++) {
+  uint16_t crystals[17][4][5][5];
+  for(int tEta = 0; tEta < 17; tEta++) {
+    for(int tPhi = 0; tPhi < 4; tPhi++) {
       for(int cEta = 0; cEta < 5; cEta++) {
         for(int cPhi = 0; cPhi < 5; cPhi++) {
           crystals[tEta][tPhi][cEta][cPhi] = 0;
@@ -330,8 +269,8 @@ int main(int argc, char **argv) {
   for(int cluster = 0; cluster < 10; cluster++) {
     // Crude simulation of dispersal of cluster ET for fun around some location
     int clusterET = clusters[cluster];
-    int tEta = clusterET % NCaloLayer1Eta;
-    int tPhi = clusterET % NCaloLayer1Phi;
+    int tEta = clusterET % 17;
+    int tPhi = clusterET % 4;
     int cEta = (tPhi * clusterET) % 5;
     int cPhi = (tEta * clusterET) % 5;
     cout << tEta
@@ -356,7 +295,7 @@ int main(int argc, char **argv) {
           crystals[tEta][tPhi][cEta][cPhi] = (clusters[cluster] * 0.9);
         }
         else {
-          if(ntEta >= 0 && ntEta < NCaloLayer1Eta && ntPhi >= 0 && ntPhi < NCaloLayer1Phi)
+          if(ntEta >= 0 && ntEta < 17 && ntPhi >= 0 && ntPhi < 4)
             crystals[ntEta][ntPhi][ncEta][ncPhi] = (clusters[cluster] * 0.1 / 8.);
         }
       }
@@ -366,8 +305,8 @@ int main(int argc, char **argv) {
   }
   cout << "Total generated ET = " << totalET << endl;
   uint16_t totalDeposited = 0;
-  for(int tEta = 0; tEta < NCaloLayer1Eta; tEta++) {
-    for(int tPhi = 0; tPhi < NCaloLayer1Phi; tPhi++) {
+  for(int tEta = 0; tEta < 17; tEta++) {
+    for(int tPhi = 0; tPhi < 4; tPhi++) {
       for(int cEta = 0; cEta < 5; cEta++) {
         for(int cPhi = 0; cPhi < 5; cPhi++) {
 	  //std::cout<<"tEta/tPhi/cEta/cPhi/crystalet/"<<tEta<<"/"<<tPhi<<"/"<<cEta<<"/"<<cPhi<<"/"<<crystals[tEta][tPhi][cEta][cPhi]<<endl;
@@ -378,8 +317,7 @@ int main(int argc, char **argv) {
     }
   }
   cout << "Total deposited ET = " << totalDeposited << endl;
-
-/*  uint16_t peakEta[17][4];
+  uint16_t peakEta[17][4];
   uint16_t peakPhi[17][4];
   uint16_t largeClusterET[17][4];
   uint16_t smallClusterET[17][4];
@@ -387,23 +325,13 @@ int main(int argc, char **argv) {
   uint16_t sortedPeak_Eta[30];
   uint16_t sortedPeak_Phi[30];
   uint16_t totalCardET = 0;
- */
 
-	//uint16_t crystals[NCaloLayer1Eta][NCaloLayer1Phi][NCrystalsPerEtaPhi][NCrystalsPerEtaPhi];
-	uint16_t peakEta[NCaloLayer1Eta][NCaloLayer1Phi];
-	uint16_t peakPhi[NCaloLayer1Eta][NCaloLayer1Phi];
-	uint16_t towerET[NCaloLayer1Eta][NCaloLayer1Phi];
-	uint16_t clusterET[NCaloLayer1Eta][NCaloLayer1Phi];
-	uint16_t SortedCluster_ET[30];
-	uint16_t SortedPeak_Eta[30];
-	uint16_t SortedPeak_Phi[30];
-	uint16_t totalCardET = 0;
-
-	uint16_t largeClusterET[NCaloLayer1Eta][NCaloLayer1Phi];
-	uint16_t smallClusterET[NCaloLayer1Eta][NCaloLayer1Phi];
+  //Generating map link file
   bool success_link_map = false;
-  	success_link_map = writeLinkMapHT(crystals, peakEta, peakPhi, towerET, clusterET, SortedCluster_ET, SortedPeak_Eta, SortedPeak_Phi);
-  if(getClustersInCard(crystals, peakEta, peakPhi, largeClusterET, smallClusterET,SortedCluster_ET,SortedPeak_Eta,SortedPeak_Phi)) {
+  success_link_map = writeLinkMapRCT(crystals, peakEta, peakPhi, largeClusterET, smallClusterET, sortedCluster_ET, sortedPeak_Eta, sortedPeak_Phi);
+
+
+  if(getClustersInCard(crystals, peakEta, peakPhi, largeClusterET, smallClusterET,sortedCluster_ET,sortedPeak_Eta,sortedPeak_Phi)) {
     cout << "From the simulation: " << endl;
     cout << "tEta\ttPhi\tpeakEta\tpeakPhi\tlargeClusterET\tsmallClusterET\t" << endl;
     for(int tEta = 0; tEta < 17; tEta++) {
